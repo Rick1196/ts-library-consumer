@@ -1,0 +1,155 @@
+////
+/// @author Schiller UX/UI Design Department
+/// @since v3.1.0
+/// @since Sep/2020
+/// @group ENGINES
+////
+
+/// This engine is in charge of assigning to all the properties that need color the necessary values to carry out their function.
+/// @group ENGINES
+/// @param {$Property} $Property [none] - The css property that is needed, such as color, background, border, or linear-gradient.
+/// @param {$ColorCat} $ColorCat [none] - Asks for the name of the color variable already declared in the color palettes.
+/// @param {$ExtraValues} $ExtraValues [none] - Defines that it is a pseudo element or border properties.
+/// @example
+///
+///   .item {
+///
+///       // We call the mixin by @include //
+///
+///       @include Themer(background, Selected);
+///
+///       // The result of this mixin will be: //
+///
+///       background: var(--Hubio-Selected);
+///
+///   }
+
+@mixin Themer($Property, $ColorCat, $ExtraValues:"") {
+
+    $Properties: (
+        background,
+        color,
+        border,
+        border-top,
+        border-right,
+        border-left,
+        border-bottom,
+        box-shadow,
+        drop-shadow,
+        text-shadow,
+        linear-gradient,
+        alpha-color,
+        alpha-background,
+        rootcolor,
+    );
+
+    @if list-has-key($Properties, $Property) {
+
+        $Colorquery: map-deep-get($Palettes, $skin, $ColorCat);
+
+        & {
+            @if $ExtraValues == before {
+
+                &::before {
+                    content: '';
+                    #{$Property}: var(#{"--"+$skin}-#{$ColorCat});
+                    @content;
+
+                }
+            }
+
+            @else if $ExtraValues == after {
+
+                &::after {
+                    content: '';
+                    #{$Property}: var(#{"--"+$skin}-#{$ColorCat});
+                    @content;
+
+                }
+            }
+
+            @else if $Property == linear-gradient {
+
+                $Colors:();
+
+                @for $i from 1 through length($ColorCat) {
+
+                    $color: map-deep-get($Palettes, $skin, nth($ColorCat, $i));
+
+                    $Colors: append($Colors, #{"hsl("+$color+")"}, comma);
+
+                }
+
+                @if $ExtraValues == "" {
+
+                    $ExtraValues: "180deg";
+
+                }
+
+                background: linear-gradient(unquote($ExtraValues), $Colors);
+
+            }
+
+            @else if $Property == alpha-color {
+                $name: map-deep-get($Palettes, $skin, $ColorCat);
+
+                $value-h: nth($name, 1);
+                $value-s: nth($name, 2);
+                $value-l: nth($name, 3);
+                $value-a: $ExtraValues;
+
+                #{"--"+$skin}-#{$ColorCat}-#{"A"+$ExtraValues}: #{"hsla("+$value-h}#{","+$value-s+"%"}#{","+$value-l+"%"}#{",."+$value-a+")"};
+
+                color: var(#{"--"+$skin}-#{$ColorCat}-#{"A"+$ExtraValues});
+
+            }
+
+            @else if $Property == alpha-background {
+                $name: map-deep-get($Palettes, $skin, $ColorCat);
+
+                $value-h: nth($name, 1);
+                $value-s: nth($name, 2);
+                $value-l: nth($name, 3);
+                $value-a: $ExtraValues;
+
+                #{"--"+$skin}-#{$ColorCat}-#{"A"+$ExtraValues}: #{"hsla("+$value-h}#{","+$value-s+"%"}#{","+$value-l+"%"}#{",."+$value-a+")"};
+
+                background: var(#{"--"+$skin}-#{$ColorCat}-#{"A"+$ExtraValues});
+
+            }
+
+            @else if $Property == rootcolor {
+                $name: map-deep-get($Palettes, $skin, $ColorCat);
+
+                $value-h: nth($name, 1);
+                $value-s: nth($name, 2);
+                $value-l: nth($name, 3);
+                $value-a: $ExtraValues;
+
+                #{"--"+$skin}-#{""+$ColorCat}-#{"A"+$ExtraValues}: #{"hsla("+$value-h}#{","+$value-s+"%"}#{","+$value-l+"%"}#{",."+$value-a+")"};
+
+            }
+
+            @else if $Property == drop-shadow {
+
+                filter: drop-shadow(var(#{"--"+$skin}-#{$ColorCat}) unquote($ExtraValues));
+
+            }
+
+            @else {
+
+                #{$Property}: var(#{"--"+$skin}-#{$ColorCat}) unquote($ExtraValues);
+
+            }
+
+        }
+
+    }
+
+    @else {
+        @error "'#{$Property}' no es una propiedad permitida. (Solo background, color, border, text-shadow, box-shadow y linear-gradient).";
+    }
+
+}
+
+// Themer Engine

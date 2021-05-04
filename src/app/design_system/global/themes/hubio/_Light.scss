@@ -1,0 +1,124 @@
+////
+/// @author Schiller UX/UI Design Department
+/// @since v3.1.0
+/// @since Sep/2020
+/// @group HUBIOMIXINS
+/// This file was created to contain the necessary MIXINS in order to automate the writing of different elements
+////
+
+/// This Mixin sets the necessary values for each theme and switch themes.
+/// @group HUBIOMIXINS
+/// @param {$Theme} $Theme [null] - look for the theme in the device preferences and indicate which theme to display on the platform.
+/// @param {$ColorValue} $ColorValue [null] - Find the color palette corresponding to the theme with the color variables and their values
+///
+/// @example
+///    @mixin AngelesLight {
+///
+///        .fa-tensiometer-dark,
+///        .fa-tensiometer,
+///        .fa-file-alt-card-dark,
+///        .fa-file-alt-card,
+///        .fa-test-card-dark,
+///        .fa-test-card {
+///
+///            filter: inherit;
+///
+///        }
+///
+///        @include Origin(SessionCtr) {
+///            @include Themer(background, White);
+///        }
+///
+///        @include Enclose(AppBody) {
+///
+///            background: linear-gradient(0deg, rgb(85 136 255 / 50%) 0%, var(--Hubio-BodyBackground) 6%, var(--Hubio-BodyBackground) 95%, rgb(255 213 137 / 50%) 100%);
+///            background-position: center;
+///            background-repeat: no-repeat;
+///            background-size: cover;
+///            background-attachment: fixed;
+///            height: 100%;
+///            position: relative;
+///
+///            //Palettes
+///            $ColorValue: map-get($Angeles, $skin);
+///
+///            @each $color, $name in $ColorValue {
+///                $value-h: nth($name, 1);
+///                $value-s: nth($name, 2);
+///                $value-l: nth($name, 3);
+///
+///                $finalcolor: "hsl(#{$value-h}, #{$value-s}%, #{$value-l}%)";
+///
+///                #{"--"+$UINameSpace}-#{""+$color}: unquote($finalcolor);
+///
+///            }
+///
+///            #{"--"+$UINameSpace}-#{"Extra2-A9"}: hsla(0, 0, 89, .9);
+///            #{"--"+$UINameSpace}-#{"ShadowDark"}: hsla(216, 23, 71, .6);
+///            #{"--"+$UINameSpace}-#{"ShadowLight"}: hsla(0, 0, 100, .5);
+///            #{"--"+$UINameSpace}-#{"WhiteSwitch"}: hsla(0, 0, 100, .95);
+///
+///        }
+///
+///        @include Enclose(Header__Icons) {
+///            @include Origin(fa-eclipse) {
+///                @include Themer(color, BodyText);
+///            }
+///        }
+///    }
+///
+
+@mixin HubioLight {
+
+    .fa-tensiometer-dark,
+    .fa-tensiometer,
+    .fa-file-alt-card-dark,
+    .fa-file-alt-card,
+    .fa-test-card-dark,
+    .fa-test-card {
+
+        filter: inherit;
+
+    }
+
+    @include Origin(SessionCtr) {
+        @include Themer(background, White);
+    }
+
+    @include Enclose(AppBody) {
+
+        background: linear-gradient(0deg, rgb(85 136 255 / 50%) 0%, var(--Hubio-BodyBackground) 6%, var(--Hubio-BodyBackground) 95%, rgb(255 213 137 / 50%) 100%);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        height: 100%;
+        position: relative;
+
+        //Palettes
+        $ColorValue: map-get($Palettes, $skin);
+
+        @each $color, $name in $ColorValue {
+            $value-h: nth($name, 1);
+            $value-s: nth($name, 2);
+            $value-l: nth($name, 3);
+
+            $finalcolor: "hsl(#{$value-h}, #{$value-s}%, #{$value-l}%)";
+
+            #{"--"+$UINameSpace}-#{""+$color}: unquote($finalcolor);
+
+        }
+
+        #{"--"+$UINameSpace}-#{"Extra2-A9"}: hsla(0, 0, 89, .9);
+        #{"--"+$UINameSpace}-#{"ShadowDark"}: hsla(216, 23, 71, .9);
+        #{"--"+$UINameSpace}-#{"ShadowLight"}: hsla(0, 0, 100, .5);
+        #{"--"+$UINameSpace}-#{"WhiteSwitch"}: hsla(0, 0, 100, .95);
+
+    }
+
+    @include Enclose(Header__Icons) {
+        @include Origin(fa-eclipse) {
+            @include Themer(color, BodyText);
+        }
+    }
+}

@@ -1,0 +1,123 @@
+////
+/// @author Schiller UX/UI Design Department
+/// @since v3.1.0
+/// @since Sep/2020
+/// @group ENGINES
+////
+
+/// This engine is in charge of assigning to all the properties that need color the necessary values to carry out their function.
+/// @group ENGINES
+/// @param {$FontKind} $FontKind [base] - Type of font required in the project.
+/// @param {$FW} $FW [null] - Font weight to be used in the project.
+/// @param {$FSMIN} $FSMIN [null] - Minimum font size.
+/// @param {$FSMAX} $FSMAX [null] - Maximum font size.
+/// @param {$LS} $LS [null] - Defines the character spacing.
+/// @param {$LHMIN} $LHMIN [null] - Minimum line height.
+/// @param {$LHMAX} $LHMAX [null] - Maximum line height.
+/// @example
+///
+///   .item {
+///
+///       // We call the mixin by @include //
+///
+///       @include Typer(md, $FSMIN: base, $FSMAX: base);
+///
+///       // The result of this mixin will be: //
+///
+///           font-size: var(--Hubio-Tbase);
+///           line-height: calc(var(--Hubio-Tbase) / 16)rem;
+///
+///   }
+
+@mixin Typer($FontKind:Base, $FW:null, $FSMIN:null, $FSMAX:null, $LS:null, $LHMIN:null, $LHMAX:null) {
+    @if map-has-key($TypographyStyles, $FontKind) {
+
+        $query: map-get($TypographyStyles, $FontKind);
+
+        $FF: nth($query, 1);
+
+        @if not $FW {
+            $FW: nth($query, 2);
+
+        }
+
+        @if not $FSMIN {
+            $FSMIN: nth($query, 3);
+
+        }
+
+        @if not $FSMAX {
+            $FSMAX: nth($query, 4);
+
+        }
+
+        @if not $LS {
+            $LS: nth($query, 5);
+
+        }
+
+        @if not $LHMAX {
+            $LHMAX: nth($query, 4);
+
+            @if $FSMAX {
+                $LHMAX:$FSMAX;
+
+            }
+
+        }
+
+        @if $LHMAX == 0 {
+
+            $LHMAX: --Hubio-Zero;
+
+        }
+
+        @if $LHMAX == 1 {
+
+            $LHMAX: --Huvio-Uno;
+
+        }
+
+        @if not $LHMIN {
+            $LHMIN: nth($query, 3);
+
+            @if $FSMIN {
+                $LHMIN:$FSMIN;
+
+            }
+
+        }
+
+        @if $LHMIN == 0 {
+
+            $LHMIN: --Hubio-Zero;
+
+        }
+
+        @if $LHMIN == 1 {
+
+            $LHMIN: --Huvio-Uno;
+
+        }
+
+        @if ($FF == Sans-serif) {
+
+            font-family: unquote($FF);
+
+        }
+
+        @else {
+            font-family: $FF, Sans-Serif;
+
+        }
+
+        font-weight: $FW;
+
+        @include responsive-font(320px, 1440px, $FSMIN, $FSMAX, $LHMIN, $LHMAX);
+
+        letter-spacing: $LS;
+
+        @include FontSmoothing;
+
+    }
+}

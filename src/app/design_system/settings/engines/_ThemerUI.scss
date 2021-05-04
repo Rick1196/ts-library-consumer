@@ -1,0 +1,182 @@
+////
+/// @author Schiller UX/UI Design Department
+/// @since v3.1.0
+/// @since Sep/2020
+/// @group ENGINES
+////
+
+$skin: $UINameSpace !default;
+
+/// This engine contains the correct syntax for theme style sheets, creating blocks, elements, modifiers, and encapsulating classes.
+/// @group ENGINES
+/// @param {$selector} $selector [none] - Name of a block class according to the BEM methodology.
+/// @example
+///
+///   // We call the mixin by @include //
+///
+///   @include ThemerUI(Item) {
+///
+///       @content
+///
+///   }
+///
+///   // The result of this mixin will be: //
+///
+///    .Item {
+///
+///        @content
+///
+///   }
+
+@mixin ThemerUI($selector, $skin: 'Hubio') {
+    @if list-has-key( $ThemesUI, $skin) {
+
+        $skin: $skin !global;
+
+    }
+
+    @if not index($ThemesUI, $skin) {
+        @warn "#{$skin} no existe esa paleta";
+
+        $skin: $UINameSpace !global;
+
+    }
+
+    .#{$selector} {
+
+        @content;
+
+    }
+}
+
+/// @group ENGINES
+/// @param {$nameElement} $nameElement [none] - Name of an Element class according to the BEM methodology, has to be inside a ThemerUI class.
+/// @example
+///
+///   // We call the mixin by @include //
+///
+///   @include Element(Container) {
+///
+///       @content
+///
+///   }
+///
+///   // The result of this mixin will be: //
+///
+///    .Item__Container {
+///
+///        @content
+///
+///   }
+
+@mixin Element($nameElement : 'Element') {
+
+    &__#{$nameElement}.#{$UINameSpace} {
+
+        @content;
+
+    }
+}
+
+/// @group ENGINES
+/// @param {$nameModify} $nameModify [none] - Name of an Modifyer class according to the BEM methodology, has to be inside a Element.
+/// @example
+///
+///   // We call the mixin by @include //
+///
+///   @include Element(Container) {
+///
+///       @content
+///
+///       @include Modify(Alt) {
+///
+///           @content
+///
+///       }
+///
+///   }
+///
+///   // The result of this mixin will be: //
+///
+///    .Item__Container-Alt {
+///
+///        @content
+///
+///   }
+
+@mixin Modify($nameModify : 'Modify') {
+
+    $e: &;
+
+    $Element: str-replace(#{$e}, ".#{$UINameSpace}", '');
+
+    @at-root #{$Element}-#{$nameModify}.#{$UINameSpace} {
+
+        @content;
+    }
+
+}
+
+/// @group ENGINES
+/// @param {$nameEnclose} $nameEnclose [none] - Call and encapsulate a theme class to alter its attributes.
+/// @example
+///
+///   // We call the mixin by @include //
+///
+///   @include Enclose(NavBar__Background) {
+///
+///       // We can define the new class properties;
+///
+///       @content
+///
+///   }
+///
+///   // The result of this mixin will be: //
+///
+///    .NavBar__Background.Theme {
+///
+///        @content
+///
+///   }
+
+@mixin Enclose($nameEnclose : 'Enclose') {
+
+    .#{$nameEnclose}.#{$UINameSpace} {
+
+        @content;
+
+    }
+}
+
+/// @group ENGINES
+/// @param {$nameEnclose} $nameEnclose [none] - Call and encapsulate a non-topic class from its source to alter or reset its attributes.
+/// @example
+///
+///   // We call the mixin by @include //
+///
+///   @include Origin(Container) {
+///
+///       // We can define the new class properties;
+///
+///       @content
+///
+///   }
+///
+///   // The result of this mixin will be: //
+///
+///    .Container {
+///
+///        @content
+///
+///   }
+
+@mixin Origin($nameOrigin : 'Origin') {
+
+    .#{$nameOrigin} {
+
+        @content;
+
+    }
+}
+
+// ThemerUI Engine

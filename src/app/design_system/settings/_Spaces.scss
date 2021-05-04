@@ -1,0 +1,37 @@
+////
+/// @author Schiller UX/UI Design Department
+/// @since v3.1.0
+/// @since Sep/2020
+/// @group SETTINGS
+////
+
+/// This file contains the space variables that are used in the design system.
+/// @group SETTINGS
+/// @example
+///
+///   // We define a space value //
+///
+///   VariableName: 12px;
+///
+///   // The result of this mixin will be: //
+///
+///   0.75rem
+
+$Spaces: (
+    zero: 0px, //Cero
+    xs: 3px, //xtra small space
+    sm: 6px, //small space
+    md: 9px, //medium space
+    base: 12px, //base space
+    lg: 15px, //large space
+    xl: 18px, //xtra large space
+    xxl: 21px, //1xtra large space
+    2xl: 30px, //2xtra large space
+    4xl: 36px, //4xtra large space
+    6xl: 48px, //4xtra large space
+    8xl: 60px, //8xtra large space
+    10xl: 80px, //10xtra large space
+    auto: auto, //auto val
+);
+
+@import './engines/Spacer';

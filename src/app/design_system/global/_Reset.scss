@@ -1,0 +1,321 @@
+////
+/// @author Schiller UX/UI Design Department
+/// @since v3.1.0
+/// @since Sep/2020
+/// @group Reset
+/// This file contains the html native properties, and the modifiers for specific browsers, in order to reset them for the correct function of the created layouts.
+////
+
+/// Firefox Selector to override the default values of the selected items.
+/// @group Reset
+
+// ::-moz-selection {
+//     @include Themer(background, Selected);
+//     @include Themer(color, White);
+//
+// }
+
+/// Microsoft Selector to override the default values of the inputs placeholders.
+/// @group Reset
+
+// ::-ms-input-placeholder { /* Microsoft Edge */
+//     @include Themer(color, Inactive-A35);
+//
+// }
+
+/// Override the default values of the html @viewport.
+/// @group reset
+
+html {
+
+    box-sizing: border-box;
+
+    @include Themer(color, BodyText);
+
+    @viewport {
+
+        zoom: .75;
+        width: device-width;
+        min-width: 320px;
+        max-width: 768px;
+        min-zoom: .5;
+        max-zoom: .9;
+
+    }
+
+}
+
+/// Detect the theme preferences for the dark color scheme.
+/// @group reset
+@media (prefers-color-scheme: dark) {
+    @include DarkScheme;
+}
+
+/// Detect the theme preferences for the light color scheme.
+/// @group reset
+@media (prefers-color-scheme: light) {
+    @include LightScheme;
+}
+
+/// Override the default values for the html h1, h2, h3, h4, h5, h6 and p labels.
+/// @group reset
+/// @example
+/// //this reset will return
+///
+/// h1 {
+///
+///     white-space: pre-line;
+///     margin: 0px;
+///     padding: 0px;
+///     font-family: Roboto-regular, Sans-Serif;
+///
+/// }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+
+    white-space: pre-line;
+    margin: 0px;
+    padding: 0px;
+    font-family: Roboto-regular, Sans-Serif;
+
+}
+
+/// Override the default values for the h1 and h2 html labels.
+/// @group reset
+/// @example
+/// //this reset will return
+///
+/// h1 {
+///
+///     color: var(--Hubio-Menu);
+///     text-transform: uppercase;
+///
+///     @include Typer(lg-b, $FSMAX: $f-xxl, $FSMIN: $f-m);
+///
+/// }
+h1,
+h2 {
+    color: var(--Hubio-Menu);
+    text-transform: uppercase;
+
+    @include Typer(lg-b, $FSMAX: $f-xxl, $FSMIN: $f-m);
+
+}
+
+h3 {
+    color: var(--Hubio-Menu);
+    text-transform: uppercase;
+
+}
+
+/// Override the default values for the h4 html label.
+/// @group reset
+/// @example
+/// //this reset will return
+///
+/// h4 {
+///
+///     @include Spacer(margin, all, md zero);
+///     @include Themer(color, Black);
+///     @include Typer(lg-b, $FSMAX: $f-xxl, $FSMIN: $f-m);
+///
+/// }
+h4 {
+    @include Spacer(margin, all, md zero);
+    @include Themer(color, Black);
+    @include Typer(lg-b, $FSMAX: $f-xxl, $FSMIN: $f-m);
+
+}
+
+/// Override the default values for the h6 html label.
+/// @group reset
+/// @example
+/// //this reset will return
+///
+/// h1 {
+///
+///     color: var(--Hubio-Menu);
+///     text-transform: uppercase;
+///
+///     @include Typer(lg-b, $FSMAX: $f-xxl, $FSMIN: $f-m);
+///
+/// }
+h5 {
+    @include Spacer(margin, all, md zero);
+    @include Themer(color, Black);
+    @include Typer(lg-b, $FSMAX: $f-l, $FSMIN: $f-s);
+
+}
+
+// input:-internal-autofill-selected {
+//
+//     //border-bottom: 2px solid var(--Hubio-Selected) !important;
+//
+// }
+
+/// Override the default values for the ul html label.
+/// @group reset
+/// @example
+/// //this reset will return
+///
+/// ul {
+///
+///     list-style: none;
+///
+/// }
+
+// ul {
+//
+//     list-style: none;
+//
+// }
+
+/// Override the default values for the chrome Input, textarea and select.
+/// @group reset
+/// @example
+/// //this reset will return
+///
+/// input:-webkit-autofill {
+///
+///     //border-bottom: 2px solid var(--Hubio-Selected);
+///     -webkit-text-fill-color: var(--Hubio-Selected);
+///     //-webkit-box-shadow: 0px 0px 0px 1000px var(--Hubio-White) inset;
+///     transition: background-color 5000s ease-in-out 0s;
+///
+/// }
+
+// input:-webkit-autofill,
+// input:-webkit-autofill:hover,
+// input:-webkit-autofill:focus,
+// textarea:-webkit-autofill,
+// textarea:-webkit-autofill:hover,
+// textarea:-webkit-autofill:focus,
+// select:-webkit-autofill,
+// select:-webkit-autofill:hover,
+// select:-webkit-autofill:focus {
+//
+//     //border-bottom: 2px solid var(--Hubio-Selected);
+//     -webkit-text-fill-color: var(--Hubio-Selected);
+//     //-webkit-box-shadow: 0px 0px 0px 1000px var(--Hubio-White) inset;
+//     transition: background-color 5000s ease-in-out 0s;
+//
+// }
+
+/// Override the default values for Selection.
+/// @group reset
+/// @example
+/// //this reset will return
+///
+/// ::selection {
+///
+///     @include Themer(background, Selected);
+///     @include Themer(color, White);
+///
+/// }
+::selection {
+    @include Themer(background, Selected);
+    @include Themer(color, White);
+
+}
+
+/// Override the default values for placeholder.
+/// @group reset
+/// @example
+/// //this reset will return
+///
+/// ::placeholder {
+///
+///     opacity: 1;
+///
+///     @include Themer(color, Inactive-A35);
+///
+/// }
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+
+    opacity: 1;
+
+    @include Themer(color, Inactive-A35);
+
+}
+
+/// Override the default values for Microsoft input placeholder.
+/// @group reset
+/// @example
+/// //this reset will return
+///
+/// :-ms-input-placeholder {
+///
+///     @include Themer(color, Inactive-A35);
+///
+/// }
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    @include Themer(color, Inactive-A35);
+
+}
+
+/// Override the default values for the txpan and text labels.
+/// @group reset
+/// @example
+/// //this reset will return
+///
+/// tspan {
+///
+///     font-family: Roboto-regular, Sans-Serif;
+///     font-weight: 400;
+///     text-rendering: optimizeLegibility;
+///
+/// }
+tspan,
+text {
+
+    font-family: Roboto-regular, Sans-Serif;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+
+}
+
+/// Override the default values for button.
+/// @group reset
+/// @example
+/// //this reset will return
+///
+/// button {
+///
+///     border: none;
+///
+/// }
+button {
+
+    border: none;
+
+}
+
+/// Override the default values for the label a.
+/// @group reset
+/// @example
+/// //this reset will return
+///
+/// a {
+///
+///     cursor: pointer;
+///     text-decoration: none;
+///
+///     @include Hover;
+///     @include Themer(color, Selected);
+///
+/// }
+a {
+
+    cursor: pointer;
+    text-decoration: none;
+
+    @include Hover;
+    @include Themer(color, Selected);
+
+}

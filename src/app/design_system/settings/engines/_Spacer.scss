@@ -1,0 +1,166 @@
+////
+/// @author Schiller UX/UI Design Department
+/// @since v3.1.0
+/// @since Sep/2020
+/// @group ENGINES
+////
+
+/// This engine calls the predefined space values for the margin and padding, defines the direction and converts the units from pixels to rem.
+/// @group ENGINES
+/// @param {$Breakpoints} $Breakpoints [none] - This value calls the different resolutions of the devices declared for the project.
+/// @param {$Device} $Device [none] - Defines the size of the device to perform the calculation and indicate the corresponding breakpoint.
+/// @example
+///
+///   .item {
+///
+///       // We call the mixin by @include //
+///
+///       @include Spacer(margin, all, base);
+///
+///       // The result of this mixin will be: //
+///
+///       margin-top: 0.75rem;
+///       margin-right: 0.75rem;
+///       margin-bottom: 0.75rem;
+///       margin-left: 0.75rem;
+///
+///   }
+
+@mixin Spacer($type:margin, $direction:all, $amount:'base') {
+    @if not map-has-key($Spaces, $amount) {
+
+        $values: ();
+
+        @for $i from 1 through length($amount) {
+
+            $val: map-get($Spaces, nth($amount, $i));
+
+            @if $val == auto {
+                $values: append($values, $val, space);
+
+            }
+
+            @else {
+                $values: append($values, pxtorem($val), space);
+
+            }
+
+        }
+
+        @if $type == padding {
+            @if $direction == all {
+                padding: $values;
+
+            }
+
+            @else if $direction == top {
+                padding-top: $val;
+
+            }
+
+            @else if $direction == left {
+
+                padding-left: $val;
+
+            }
+
+            @else if $direction == right {
+                padding-right: $val;
+
+            }
+
+            @else {
+                padding-bottom: $val;
+
+            }
+        }
+
+        @else {
+            @if $direction == all {
+                margin: $values;
+
+            }
+
+            @else if $direction == top {
+                margin-top: $sval;
+
+            }
+
+            @else if $direction == left {
+                margin-left: $sval;
+
+            }
+
+            @else if $direction == right {
+                margin-right: $sval;
+
+            }
+
+            @else {
+                margin-bottom: $sval;
+
+            }
+        }
+
+    }
+
+    @else {
+
+        $sval: pxtorem(map-get($Spaces, $amount));
+
+        @if $type == padding {
+            @if $direction == all {
+                padding: $sval;
+
+            }
+
+            @else if $direction == top {
+                padding-top: $sval;
+
+            }
+
+            @else if $direction == left {
+                padding-left: $sval;
+
+            }
+
+            @else if $direction == right {
+                padding-right: $sval;
+
+            }
+
+            @else {
+                padding-bottom: $sval;
+
+            }
+        }
+
+        @else {
+            @if $direction == all {
+                margin: $sval;
+
+            }
+
+            @else if $direction == top {
+                margin-top: $sval;
+
+            }
+
+            @else if $direction == left {
+                margin-left: $sval;
+
+            }
+
+            @else if $direction == right {
+                margin-right: $sval;
+
+            }
+
+            @else {
+                margin-bottom: $sval;
+
+            }
+        }
+
+    }
+}

@@ -1,0 +1,16 @@
+/// This Mixin sets the necessary values for each theme and switch themes.
+/// @group MIXINS
+/// @param {theme} $Theme [null] - look for the theme in the device preferences and indicate which theme to display on the platform.
+/// @param {ColorValue} $ColorValue Find the color palette corresponding to the theme with the color variables and their values
+/// @example
+///
+
+@mixin SwitchTheme($Theme:null) {
+    @if $Theme == HubioDark {
+        @include HubioDark;
+    }
+
+    @else if $Theme == HubioLight {
+        @include HubioLight;
+    }
+}

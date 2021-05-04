@@ -1,0 +1,336 @@
+////
+/// @author Schiller UX/UI Design Department
+/// @since v3.1.0
+/// @since Sep/2020
+/// @group ENGINES
+/// This file contains the necessary functions that do design system needs in order to display the layouts correctly
+////
+
+/// This function is in charge of creating a map of colors and assigning it to the function that includes it
+/// @group ENGINES
+///
+
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+
+    }
+
+    @return $map;
+}
+
+/// This function assigns a constant value to a variable in order to perform the pow operation
+/// @group ENGINES
+/// @param {$exponential} $exponential [none] - Value of the exponential required to perform the calculation of the fluid typeface.
+/// @param {$constant} $constant [none] - The value set in the Root for the font size.
+
+@function constant($exponential, $constant) {
+
+    $constantcalc: $constant / 16;
+    $operation: poly-pow(1.14, $exponential);
+    $totalcalc: $operation - $constantcalc;
+
+    @return #{$totalcalc+"rem"};
+
+}
+
+/// This function assigns a the hsla values to the color that we want to create
+/// @group ENGINES
+/// @param {$h} $h [0] - Hue value.
+/// @param {$s} $s [0] - Saturation value.
+/// @param {$l} $l [0] - Lightness value.
+/// @param {$a} $a [0] - Alpha value.
+
+@function hsla($h, $s, $l, $a) {
+    @return unquote('hsla(#{$h}, #{$s+"%"}, #{$l+"%"}, #{$a})');
+}
+
+/// This function assigns an exponential value to a variable in order to perform the pow operation
+/// @group ENGINES
+
+@function expo($val) {
+    $result: poly-pow(1.14, $val);
+
+    @return #{$result+"rem"};
+
+}
+
+/// This function converts pixels to rem values
+/// @group ENGINES
+/// @param {$pxsize} $pxsize [none] - Size in pixels.
+/// @param {$remSize} $remSize [none] - Size in rem.
+
+@function pxtorem($pxsize) {
+    $remSize: $pxsize / 16px;
+
+    @return #{$remSize}rem;
+
+}
+
+/// This function converts the font-size to rem values
+/// @group ENGINES
+/// @param {$pxsize} $pxsize [none] - Size in pixels.
+/// @param {$remSize} $remSize [none] - Size in rem.
+
+@function txtolh($pxsize) {
+    $remSize: calc(#{$pxsize} / 16);
+
+    @return #{$remSize+"rem"};
+
+}
+
+/// This function unitize a value in order to use it in an arithmetic operation
+/// @group ENGINES
+
+@function units($value) {
+    @return $value / ($value * 0 + 1);
+}
+
+/// This function unitize a value with a calc in order to use it in an arithmetic operation that needs to be performed by a calc function
+/// @group ENGINES
+/// @param {$value} $pxsize [none] - Value to be converted.
+/// @param {$u} $pxsize [none] - unit value.
+
+@function units2($value) {
+    $u: calc(#{$value} / #{$value} * 0 + 1);
+
+    @return $u;
+
+}
+
+/// This function converts the line height to rem values
+/// @group ENGINES
+/// @param {$pxsize} $pxsize [none] - Size in pixels.
+/// @param {$remSize} $remSize [none] - Size in rem.
+
+@function lhtorem($line) {
+    $lineValue: $line * 1.4;
+    $lu: units($lineValue) / 16;
+
+    @return #{$lu}rem;
+
+}
+
+/// This function compares a root value and assign it a min value in pixels
+/// @group ENGINES
+/// @param {$min-font-size} $min-font-size [none] - Minimum font size variable.
+
+@function comparemin($min-font-size) {
+    @if $min-font-size == --Hubio-T2xxs {
+
+        $min-font-size: 9px;
+
+        @return $min-font-size;
+
+    }
+
+    @else if $min-font-size == --Hubio-Txxs {
+
+        $min-font-size: 10px;
+
+        @return $min-font-size;
+
+    }
+
+    @else if $min-font-size == --Hubio-Txs {
+
+        $min-font-size: 12px;
+
+        @return $min-font-size;
+
+    }
+
+    @else if $min-font-size == --Hubio-Ts {
+
+        $min-font-size: 14px;
+
+        @return $min-font-size;
+
+    }
+
+    @else if $min-font-size == --Hubio-Tbase {
+
+        $min-font-size: 16px;
+
+        @return $min-font-size;
+
+    }
+
+    @else if $min-font-size == --Hubio-Tm {
+
+        $min-font-size: 18px;
+
+        @return $min-font-size;
+
+    }
+
+    @else if $min-font-size == --Hubio-Tl {
+
+        $min-font-size: 22px;
+
+        @return $min-font-size;
+
+    }
+
+    @else if $min-font-size == --Hubio-Txl {
+
+        $min-font-size: 24px;
+
+        @return $min-font-size;
+
+    }
+
+    @else if $min-font-size == --Hubio-Txxl {
+
+        $min-font-size: 28px;
+
+        @return $min-font-size;
+
+    }
+
+    @else if $min-font-size == --Hubio-T2xxl {
+
+        $min-font-size: 32px;
+
+        @return $min-font-size;
+
+    }
+
+    @else if $min-font-size == --Hubio-T3xxl {
+
+        $min-font-size: 38px;
+
+        @return $min-font-size;
+
+    }
+
+    @else if $min-font-size == --Hubio-T4xxl {
+
+        $min-font-size: 40px;
+
+        @return $min-font-size;
+
+    }
+
+    @else if $min-font-size == --Hubio-T6xxl {
+
+        $min-font-size: 60px;
+
+        @return $min-font-size;
+
+    }
+
+    @return $min-font-size;
+}
+
+/// This function compares a root value and assign it a max value in pixels
+/// @group ENGINES
+/// @param {$max-font-size} $max-font-size [none] - Maximum font size variable.
+
+@function comparemax($max-font-size) {
+    @if $max-font-size == --Hubio-T2xxs {
+
+        $max-font-size: 9px;
+
+        @return $max-font-size;
+
+    }
+
+    @else if $max-font-size == --Hubio-Txxs {
+
+        $max-font-size: 10px;
+
+        @return $max-font-size;
+
+    }
+
+    @else if $max-font-size == --Hubio-Txs {
+
+        $max-font-size: 12px;
+
+        @return $max-font-size;
+
+    }
+
+    @else if $max-font-size == --Hubio-Ts {
+
+        $max-font-size: 14px;
+
+        @return $max-font-size;
+
+    }
+
+    @else if $max-font-size == --Hubio-Tbase {
+
+        $max-font-size: 16px;
+
+        @return $max-font-size;
+
+    }
+
+    @else if $max-font-size == --Hubio-Tm {
+
+        $max-font-size: 18px;
+
+        @return $max-font-size;
+
+    }
+
+    @else if $max-font-size == --Hubio-Tl {
+
+        $max-font-size: 22px;
+
+        @return $max-font-size;
+
+    }
+
+    @else if $max-font-size == --Hubio-Txl {
+
+        $max-font-size: 24px;
+
+        @return $max-font-size;
+
+    }
+
+    @else if $max-font-size == --Hubio-Txxl {
+
+        $max-font-size: 28px;
+
+        @return $max-font-size;
+
+    }
+
+    @else if $max-font-size == --Hubio-T2xxl {
+
+        $max-font-size: 32px;
+
+        @return $max-font-size;
+
+    }
+
+    @else if $max-font-size == --Hubio-T3xxl {
+
+        $max-font-size: 38px;
+
+        @return $max-font-size;
+
+    }
+
+    @else if $max-font-size == --Hubio-T4xxl {
+
+        $max-font-size: 40px;
+
+        @return $max-font-size;
+
+    }
+
+    @else if $max-font-size == --Hubio-T6xxl {
+
+        $max-font-size: 60px;
+
+        @return $max-font-size;
+
+    }
+
+    @return $max-font-size;
+}

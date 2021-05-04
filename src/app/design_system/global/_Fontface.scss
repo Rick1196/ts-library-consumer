@@ -1,0 +1,79 @@
+////
+/// @author Schiller UX/UI Design Department
+/// @since v3.1.0
+/// @since Sep/2020
+/// @group FONTFACE
+/// This file contains the sass functions the the Engines need on the Design System
+////
+
+/// This function replaces elements on a string, it is used by th ThemerUI Engine
+/// @group FONTFACE
+///
+
+@function str-replace($string, $search, $replace: "") {
+
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+
+}
+
+/// This mixin is responsable for calling an @fontface property with your desired values for all the project
+/// @group FONTFACE
+///
+/// @example
+///
+///   // It will return //
+///
+///   @font-face {
+///
+///       font-display: swap;
+///       font-family: quote($name);
+///       font-style: $style;
+///       font-weight: $weight;
+///       src: $src;
+///
+///   }
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: ttf) {
+
+    $src: null;
+    $extmods: ( eot: "?" + str-replace($name, " ", "_"));
+    $formats: ( ttf: "truetype");
+
+    @each $ext in $exts {
+        $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+        $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+        $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+
+    }
+
+    @font-face {
+        font-display: swap;
+        font-family: quote($name);
+        font-style: $style;
+        font-weight: $weight;
+        src: $src;
+
+    }
+
+}
+
+// Font 1
+
+// @include font-face(#{$Font-1}-bold, "/assets/fonts/#{$Font-1}/#{$Font-1}-Bold");
+// @include font-face(#{$Font-1}-regular, "/assets/fonts/#{$Font-1}/#{$Font-1}-Regular");
+
+// Font 2
+
+// @include font-face(#{$Font-2}-regular, "/assets/fonts/#{$Font-2}/#{$Font-2}-Regular");
+
+// MaterialIcons
+
+// @include font-face(fa-doutone-900, "/assets/fonts/Icons/fa-doutone-900");
+// @include font-face(fa-solid-900, "/assets/fonts/Icons/fa-solid-900");
+// @include font-face(MaterialIcons-Regular, "/assets/fonts/Icons/MaterialIcons-Regular");

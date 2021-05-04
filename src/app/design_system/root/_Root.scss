@@ -1,0 +1,62 @@
+////
+/// @author Schiller UX/UI Design Department
+/// @since v3.1.0
+/// @since Sep/2020
+/// @group ROOT
+/// This file contains the global values to carry out the operations of the font sizes used in the project, as well as some color variables in hsla format that do admit transparencies.
+////
+
+/// This file contains risk color variables in hsla format and exponents for fluid type calculations.
+/// @group ROOT
+///
+
+:root {
+
+    // Global Risk Color Variables
+    #{"--"+$UINameSpace}-#{"LowerRisk"}: #00b000;
+    #{"--"+$UINameSpace}-#{"LowRisk"}: #77d034;
+    #{"--"+$UINameSpace}-#{"MediumRisk"}: #ff8c00;
+    #{"--"+$UINameSpace}-#{"HighRisk"}: #f15e00;
+    #{"--"+$UINameSpace}-#{"HigherRisk"}: #e30000;
+
+    // Global Alpha Color Variables
+    #{"--"+$UINameSpace}-#{"Transparent"}: hsla(0, 0, 0, 0);
+    #{"--"+$UINameSpace}-#{"InputLight"}: hsla(210, 81, 62, .4);
+    #{"--"+$UINameSpace}-#{"SelectedLines"}: rgba(0, 102, 204, .5);
+    #{"--"+$UINameSpace}-#{"ReportLines"}: rgba(71, 72, 77, .5);
+
+    @include ColorVariations;
+
+    #{"--"+$UINameSpace}-#{"Basefont"}: 1;
+    #{"--"+$UINameSpace}-#{"Zero"}: 0;
+    #{"--"+$UINameSpace}-#{"Uno"}: 16;
+
+    // Global Typographic Weights
+    //9px
+    #{"--"+$UINameSpace}-#{"T2xxs"}: #{calc((var(#{"--"+$UINameSpace}-#{"Basefont"}) * (#{expo(4)})) - #{constant(4, 9)})};
+    //10px
+    #{"--"+$UINameSpace}-#{"Txxs"}: #{calc((var(#{"--"+$UINameSpace}-#{"Basefont"}) * (#{expo(3)})) - #{constant(3, 10)})};
+    //12px
+    #{"--"+$UINameSpace}-#{"Txs"}: #{calc((var(#{"--"+$UINameSpace}-#{"Basefont"}) * (#{expo(2)})) - #{constant(2, 12)})};
+    //14px
+    #{"--"+$UINameSpace}-#{"Ts"}: #{calc((var(#{"--"+$UINameSpace}-#{"Basefont"}) * (#{expo(1)})) - #{constant(1, 14)})};
+    //16px
+    #{"--"+$UINameSpace}-#{"Tbase"}: #{calc((var(#{"--"+$UINameSpace}-#{"Basefont"}) * (#{expo(1)})) - #{constant(1, 16)})};
+    //18px
+    #{"--"+$UINameSpace}-#{"Tm"}: #{calc((var(#{"--"+$UINameSpace}-#{"Basefont"}) * (#{expo(2)})) - #{constant(2, 18)})};
+    //22px
+    #{"--"+$UINameSpace}-#{"Tl"}: #{calc((var(#{"--"+$UINameSpace}-#{"Basefont"}) * (#{expo(3)})) - #{constant(3, 22)})};
+    //24px
+    #{"--"+$UINameSpace}-#{"Txl"}: #{calc((var(#{"--"+$UINameSpace}-#{"Basefont"}) * (#{expo(4)})) - #{constant(4, 24)})};
+    //28px
+    #{"--"+$UINameSpace}-#{"Txxl"}: #{calc((var(#{"--"+$UINameSpace}-#{"Basefont"}) * (#{expo(5)})) - #{constant(5, 28)})};
+    //32px
+    #{"--"+$UINameSpace}-#{"T2xxl"}: #{calc((var(#{"--"+$UINameSpace}-#{"Basefont"}) * (#{expo(6)})) - #{constant(6, 32)})};
+    //38px
+    #{"--"+$UINameSpace}-#{"T3xxl"}: #{calc((var(#{"--"+$UINameSpace}-#{"Basefont"}) * (#{expo(7)})) - #{constant(7, 38)})};
+    //40px
+    #{"--"+$UINameSpace}-#{"T4xxl"}: #{calc((var(#{"--"+$UINameSpace}-#{"Basefont"}) * (#{expo(8)})) - #{constant(8, 40)})};
+    //60px
+    #{"--"+$UINameSpace}-#{"T6xxl"}: #{calc((var(#{"--"+$UINameSpace}-#{"Basefont"}) * (#{expo(11)})) - #{constant(11, 60)})};
+
+}

@@ -1,0 +1,48 @@
+////
+/// @author Schiller UX/UI Design Department
+/// @since v3.1.0
+/// @since Sep/2020
+/// @group SETTINGS
+////
+
+$f-2xxs: --Hubio-T2xxs;
+$f-xxs: --Hubio-Txxs;
+$f-xs: --Hubio-Txs;
+$f-s: --Hubio-Ts;
+$f-base: --Hubio-Tbase;
+$f-m: --Hubio-Tm;
+$f-l: --Hubio-Tl;
+$f-xl: --Hubio-Txl;
+$f-xxl: --Hubio-Txxl;
+$f-2xxl: --Hubio-T2xxl;
+$f-3xxl: --Hubio-T3xxl;
+$f-4xxl: --Hubio-T4xxl;
+$f-6xxl: --Hubio-T6xxl;
+
+/// This file contains the font styles used in the design system, sizes and weights used in the typer.
+/// @group SETTINGS
+
+$TypographyStyles: (
+    xs: (#{$Font-1}-regular, 400, #{$f-2xxs}, #{$f-xxs}, 1px),
+    sm: (#{$Font-1}-regular, 400, #{$f-xs}, #{$f-s}, 1px),
+    md: (#{$Font-1}-regular, 400, #{$f-s}, #{$f-base}, 1px),
+    lg: (#{$Font-1}-regular, 400, #{$f-xl}, #{$f-xxl}, 1px),
+    xl: (#{$Font-1}-regular, 400, #{$f-2xxl}, #{$f-4xxl}, 1px),
+    xs-b: (#{$Font-1}-bold, bold, #{$f-2xxs}, #{$f-xxs}, 1px),
+    sm-b: (#{$Font-1}-bold, bold, #{$f-xs}, #{$f-s}, 1px),
+    md-b: (#{$Font-1}-bold, bold, #{$f-s}, #{$f-base}, 1px),
+    lg-b: (#{$Font-1}-bold, bold, #{$f-xl}, #{$f-xxl}, 1px),
+    xl-b: (#{$Font-1}-bold, bold, #{$f-2xxl}, #{$f-4xxl}, 1px),
+    xs2: (#{$Font-2}-regular, 400, $f-2xxs, $f-xxs, 1px),
+    sm2: (#{$Font-2}-regular, 400, #{$f-xs}, #{$f-s}, 1px),
+    md2: (#{$Font-2}-regular, 400, #{$f-s}, #{$f-base}, 1px),
+    lg2: (#{$Font-2}-regular, 400, #{$f-xl}, #{$f-xxl}, 1px),
+    xl2: (#{$Font-2}-regular, 400, #{$f-2xxl}, #{$f-4xxl}, 1px),
+    xs-b2: (#{$Font-2}-bold, bold, $f-2xxs, $f-xxs, 1px),
+    sm-b2: (#{$Font-2}-bold, bold, #{$f-xs}, #{$f-s}, 1px),
+    md-b2: (#{$Font-2}-bold, bold, #{$f-s}, #{$f-base}, 1px),
+    lg-b2: (#{$Font-2}-bold, bold, #{$f-xl}, #{$f-xxl}, 1px),
+    xl-b2: (#{$Font-2}-bold, bold, #{$f-2xxl}, #{$f-4xxl}, 1px),
+);
+
+@import './engines/Typer';

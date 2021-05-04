@@ -1,0 +1,14 @@
+@mixin DarkScheme {
+
+    .Hubio {
+        transition: color 300ms, background-color 300ms;
+
+        @include SwitchTheme(HubioDark);
+
+    }
+
+    .Hubio.LightTheme {
+        @include SwitchTheme(HubioLight);
+
+    }
+}

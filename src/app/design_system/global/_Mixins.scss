@@ -1,0 +1,1426 @@
+////
+/// @author Schiller UX/UI Design Department
+/// @since v3.1.0
+/// @since Sep/2020
+/// @group MIXINS
+/// This file was created to contain the necessary MIXINS in order to automate the writing of different elements
+////
+
+@mixin responsive-font($min-vw, $max-vw, $min-font-size, $max-font-size, $line-height-min, $line-height-max) {
+    $u1: unit($min-vw);
+    $u2: unit($max-vw);
+    $u3-c: comparemin($min-font-size);
+    $u4-c: comparemax($max-font-size);
+    $u3: unit($u3-c);
+    $u4: unit($u4-c);
+    $u5: $line-height-min;
+    $u6: $line-height-max;
+
+    @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+
+        & {
+
+            font-size: var($min-font-size);
+            line-height: txtolh(var(#{$line-height-min}));
+
+            @media screen and (min-width: pxtorem($min-vw)) {
+
+                font-size: min(max(var(#{$min-font-size}), var(#{$max-font-size})), #{var(#{$max-font-size})});
+
+            }
+
+            @media screen and (min-width: pxtorem($max-vw)) {
+
+                font-size: var($max-font-size);
+                line-height: txtolh(var(#{$line-height-max}));
+
+            }
+
+        }
+    }
+
+}
+
+/// The mixins @Background--- are used to set the specific gradients for the numorphic design
+/// @group MIXINS
+///
+/// @example
+///
+///   .item {
+///
+///       // We call the mixin by @include //
+///
+///       @include BackgroundTheme;
+///
+///       // The result of this mixin will be: //
+///
+///       background: linear-gradient(45deg, var(--Hubio-SelectedLight), var(--Hubio-Selected));
+///
+///   }
+
+@mixin BackgroundTheme {
+
+    background: linear-gradient(45deg, var(--Hubio-SelectedLight), var(--Hubio-Selected));
+
+}
+
+@mixin BackgroundThemeActive {
+
+    background: linear-gradient(45deg, var(--Hubio-InteractionsLight), var(--Hubio-Interactions));
+
+}
+
+@mixin BackgroundProfile {
+
+    background: linear-gradient(45deg, var(--Hubio-ExtraLight), var(--Hubio-Extra));
+
+}
+
+/// The mixins @...Risk are used to set the specific gradients for the numorphic risk buttons.
+/// @group MIXINS
+///
+/// @example
+///
+///   .item {
+///
+///       // We call the mixin by @include //
+///
+///       @include LowerRisk;
+///
+///       // The result of this mixin will be: //
+///
+///       background: linear-gradient(45deg, var(--Hubio-LowerRisk), var(--Hubio-LowerRiskLight));
+///
+///   }
+
+/// This mixins is configured to reset and apply our customs styles for a button
+/// @group MIXINS
+///
+/// @example
+///
+///   .button {
+///
+///       // We call the mixin by @include //
+///
+///       @include Button;
+///
+///       // The result of this mixin will be: //
+///
+///        -webkit-tap-highlight-color: transparent;
+///        position: relative;
+///
+///        &:active {
+///
+///            -webkit-tap-highlight-color: transparent;
+///            opacity: .7;
+///            transform: scale(.97);
+///
+///        }
+///
+///        @include BackgroundTheme;
+///        @include Border;
+///        @include BtnShadow;
+///        @include Focus;
+///        @include Hover;
+///        @include Spacer(padding, all, zero lg);
+///        @include Themer(color, WhiteAbsl);
+///        @include Typer(md);
+///
+///   }
+
+@mixin Button {
+
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+
+    &:active {
+
+        -webkit-tap-highlight-color: transparent;
+        opacity: .7;
+        transform: scale(.97);
+
+    }
+
+    @include BackgroundTheme;
+    @include Border;
+    @include BtnShadow;
+    @include Focus;
+    @include Hover;
+    @include Spacer(padding, all, zero lg);
+    @include Themer(color, WhiteAbsl);
+    @include Typer(md);
+
+}
+
+/// This mixins is configured to reset and apply our customs styles for a inactive button
+/// @group MIXINS
+///
+/// @example
+///
+///   .ButtonInactive {
+///
+///       // We call the mixin by @include //
+///
+///       @include ButtonInactive;
+///
+///       // The result of this mixin will be: //
+///
+///        -webkit-tap-highlight-color: transparent;
+///        position: relative;
+///
+///        &:active {
+///
+///            -webkit-tap-highlight-color: transparent;
+///            opacity: .7;
+///            transform: scale(.97);
+///
+///        }
+///
+///        &:hover {
+///            transition: all .2s ease;
+///            opacity: 1;
+///
+///            @include BackgroundTheme;
+///            @include BtnShadow;
+///            @include Themer(color, WhiteAbsl);
+///
+///        }
+///
+///        @include Border;
+///        @include BtnShadowInset;
+///        @include Focus;
+///        @include Themer(color, BodyText);
+///        @include Spacer(padding, all, zero lg);
+///        @include Themer(background, ShadowLight);
+///        @include Typer(md);
+///
+///   }
+
+@mixin ButtonInactive {
+
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+
+    &:active {
+
+        -webkit-tap-highlight-color: transparent;
+        opacity: .7;
+        transform: scale(.97);
+
+    }
+
+    &:hover {
+        transition: all .2s ease;
+        opacity: 1;
+
+        @include BackgroundTheme;
+        @include BtnShadow;
+        @include Themer(color, WhiteAbsl);
+
+    }
+
+    @include Border;
+    @include BtnShadowInset;
+    @include Focus;
+    @include Themer(color, BodyText);
+    @include Spacer(padding, all, zero lg);
+    @include Themer(background, ShadowLight);
+    @include Typer(md);
+
+}
+
+/// This mixins is configured to reset and apply our customs styles for a button icon
+/// @group MIXINS
+///
+/// @example
+///
+///   .ButtonIcon {
+///
+///       // We call the mixin by @include //
+///
+///       @include ButtonIcon;
+///
+///       // The result of this mixin will be: //
+///
+///       -webkit-tap-highlight-color: transparent;
+///
+///       background: linear-gradient(135deg, rgba(0, 0, 0, .2) 0%, rgba(255, 255, 255, .1) 60%);
+///       border: 10px;
+///       position: relative;
+///
+///       &:active {
+///
+///           -webkit-tap-highlight-color: transparent;
+///           opacity: .7;
+///           transform: scale(.97);
+///
+///       }
+///
+///       @include BtnShadow;
+///       @include Focus;
+///
+///   }
+
+@mixin ButtonIcon {
+
+    -webkit-tap-highlight-color: transparent;
+    background: linear-gradient(135deg, rgba(0, 0, 0, .2) 0%, rgba(255, 255, 255, .1) 60%);
+    border: 10px;
+    position: relative;
+
+    &:active {
+
+        -webkit-tap-highlight-color: transparent;
+        opacity: .7;
+        transform: scale(.97);
+
+    }
+
+    @include BtnShadow;
+    @include Focus;
+
+}
+
+/// This mixins is configured to reset and apply our customs styles for a button Selector
+/// @group MIXINS
+///
+/// @example
+///
+///   .BtnSelector {
+///
+///       // We call the mixin by @include //
+///
+///       @include BtnSelector;
+///
+///       // The result of this mixin will be: //
+///
+///       .InputForm__BtnContainer.Hubio {
+///
+///           height: auto;
+///           width: auto;
+///
+///           @include Spacer(margin, all, zero);
+///
+///       }
+///
+///       .InputForm__Btn-Full.Hubio {
+///
+///           height: 40px;
+///           max-width: 130px;
+///           min-width: 85px;
+///           width: auto;
+///
+///           @include Typer(sm);
+///           @include Spacer(margin, all, zero);
+///           @include Spacer(padding, all, zero);
+///
+///       }
+///
+///   }
+
+@mixin BtnSelector {
+
+    .InputForm__BtnContainer.Hubio {
+
+        height: auto;
+        width: auto;
+
+        @include Spacer(margin, all, zero);
+
+    }
+
+    .InputForm__Btn-Full.Hubio {
+
+        height: 44px;
+        max-width: 100px;
+        min-width: 85px;
+        width: auto;
+
+        @include Typer(sm, $FSMAX: $f-xs, $FSMIN: $f-xs);
+        @include Spacer(margin, all, zero);
+        @include Spacer(padding, all, zero);
+
+    }
+}
+
+/// This mixins is configured to reset and apply our customs styles for a FontSmoothing for the typer engine.
+/// @group MIXINS
+///
+/// @example
+///
+///   // We call the mixin by @include //
+///
+///   @include FontSmoothing;
+///
+///   // The result of this mixin will be: //
+///
+///   text-rendering: optimizeLegibility;
+///   -moz-osx-font-smoothing: grayscale;
+///   font-smoothing: antialiased;
+///   -webkit-font-smoothing: antialiased;
+///   text-shadow: var(--Hubio-Black-A1) 0px 0px 1px;
+///
+
+@mixin FontSmoothing {
+
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+    text-shadow: var(--Hubio-Black-A1) 0px 0px 1px;
+
+}
+
+/// This mixins is configured to reset and apply our customs styles of a border radius to an element.
+/// @group MIXINS
+///
+/// @param {$TopLeft} $TopLeft [10px] - border-top-left-radius value.
+/// @param {$TopRight} $TopRight [10px] - border-top-right-radius value.
+/// @param {$BottomLeft} $BottomLeft [10px] - border-bottom-left-radius value.
+/// @param {$BottomRight} $BottomRight [10px] - border-bottom-right-radius value.
+/// @example
+///
+///   .Item {
+///
+///       // We call the mixin by @include //
+///
+///       @include Border;
+///
+///       // The result of this mixin will be: //
+///
+///       border-top-left-radius: 10px;
+///       border-top-right-radius: 10px;
+///       border-bottom-right-radius: 10px;
+///       border-bottom-left-radius: 10px;
+///
+///   }
+
+@mixin Border($TopLeft:10px, $TopRight:10px, $BottomLeft:10px, $BottomRight:10px) {
+
+    border-radius: $TopLeft $TopRight $BottomLeft $BottomRight;
+
+}
+
+/// This mixins is configured to reset and apply our customs styles of a text-shadow to a text.
+/// @group MIXINS
+///
+/// @example
+///
+///   .Item {
+///
+///       // We call the mixin by @include //
+///
+///       @include Shadow;
+///
+///       // The result of this mixin will be: //
+///
+///       text-shadow: var(--Hubio-Shadows) 1px 1px 10px;
+///
+///   }
+
+@mixin Shadow {
+
+    text-shadow: var(--Hubio-Shadows) 1px 1px 10px;
+
+}
+
+/// This mixins is configured to reset and apply our TreeButton customs styles to a button.
+/// @group MIXINS
+///
+/// @example
+///
+///   .Item {
+///
+///       // We call the mixin by @include //
+///
+///       @include TreeButton;
+///
+///       // The result of this mixin will be: //
+///
+///       border-radius: 2px;
+///       cursor: pointer;
+///       height: 20px;
+///       width: 20px;
+///
+///   }
+
+@mixin TreeButton {
+
+    border-radius: 2px;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+
+}
+
+/// This mixins is configured to reset and apply our Focus customs styles to a class.
+/// @group MIXINS
+/// @param {outline} outline [none] - This value overwrites the default value to 0, in order to the desired element doesn't apply the outline when the focus property is activated
+/// @param {-webkit-tap-highlight-color} webkit-tap-highlight-color [transparent] - This value overwrites the default value, in order to apply a transparent color to the focus property of the desired element when it is activated
+/// @example
+///
+///   .item {
+///
+///       // We call the mixin by @include //
+///
+///       @include Focus;
+///
+///       // The result of this mixin will be: //
+///
+///       &:focus {
+///
+///           outline: none;
+///           -webkit-tap-highlight-color: transparent;
+///
+///       }
+///   }
+
+@mixin Focus {
+
+    &:focus {
+        outline: none;
+        -webkit-tap-highlight-color: transparent;
+
+    }
+}
+
+/// The mixins @...Shadow are used to set the specific box shadows for the numorphic styles.
+/// @group MIXINS
+///
+/// @example
+///
+///   .item {
+///
+///       // We call the mixin by @include //
+///
+///       @include BoxShadow;
+///
+///       // The result of this mixin will be: //
+///
+///       box-shadow: 3px 3px 9px var(--Hubio-ShadowDark), -3px -3px 9px var(--Hubio-ShadowLight);
+///
+///   }
+
+@mixin BoxShadow {
+
+    box-shadow: 3px 3px 9px var(--Hubio-ShadowDark), -3px -3px 9px var(--Hubio-ShadowLight);
+
+}
+
+@mixin TextShadow {
+
+    text-shadow: 3px 3px 9px var(--Hubio-ShadowDark), -3px -3px 9px var(--Hubio-ShadowLight);
+
+}
+
+@mixin BtnShadow {
+
+    box-shadow: 3px 3px 9px var(--Hubio-ShadowDark), -2px -2px 6px var(--Hubio-ShadowLight);
+
+}
+
+@mixin BtnShadowInset {
+
+    box-shadow: inset 3px 3px 9px var(--Hubio-ShadowDark), inset -3px -3px 9px var(--Hubio-ShadowLight);
+
+}
+
+@mixin InputShadow {
+
+    box-shadow: inset 3px 3px 9px var(--Hubio-ShadowDark), inset -3px -3px 9px var(--Hubio-InputLight);
+
+}
+
+@mixin InputShadowError {
+
+    box-shadow: inset 3px 3px 9px var(--Hubio-ShadowDark), inset -3px -3px 9px var(--Hubio-Error);
+
+}
+
+@mixin LineShadow {
+
+    box-shadow: 3px 3px 9px var(--Hubio-ShadowDark), -3px -3px 9px var(--Hubio-InputLight);
+
+}
+
+/// This mixins is configured to reset and apply our Hover customs styles to a element.
+/// @group MIXINS
+/// @param {transition-duration} $HTDuration [.5s] - This value determine the speed of which the hover effect will be shown, when we have to apply this value to a button, this value will have to be .3s
+/// @param {opacity} $HOpacity [.7] - This value determine the opacity that will be applied to the element when the Hover is activated
+/// @param {box-shadow} $HShadow [null] - This value determine if the default box-shadow property is applied to the Element when the Hover is activated, to perform this action we have to assign a value to the shadow property
+/// @param {text-decoration} $HDecoration [none] - This value determine if some value is applied to the text-decoration property when the Hover is activated
+/// @param {color} $HColor [null] - This value applies the color of the interaction at the moment that the Hover is applied, this property only admits values from our color palette
+/// @example
+///
+///   .item {
+///
+///       transition: opacity .7s;
+///
+///       //  We call the mixing by @include and assign it the desired values //
+///
+///       @include Hover(.7s, .5, shadow, underline, Color-3);
+///
+///       // The result of this mixin will be: //
+///
+///       &:hover {
+///
+///           opacity: .5;
+///           box-shadow: 0px 0px 20px #000000;
+///           text-decoration: underline;
+///           color: #E3E3E3;
+///
+///       }
+///   }
+
+@mixin Hover ($HTDuration:.5s, $HOpacity: .7, $HShadow:null, $HDecoration:none, $HColor:null, $HBackground:null, $HTProperty:opacity) {
+    @include Transition($TDuration:$HTDuration, $TProperty:$HTProperty);
+
+    &:hover {
+
+        opacity: $HOpacity;
+
+        @if $HShadow == shadow {
+            @include Themer(box-shadow, Black, '0px 0px 20px');
+        }
+
+        text-decoration: $HDecoration;
+
+        @if $HColor != null {
+            @include Themer(color, $HColor);
+        }
+
+        @if $HBackground != null {
+            @include Themer(background, $HBackground);
+        }
+
+    }
+}
+
+/// This mixins is configured to reset and apply our Transition customs styles to a element.
+/// @group MIXINS
+/// @param {$TProperty} $TProperty [opacity] - Opacity value for the transition property.
+/// @param {$TDuration} $TDuration [.5s] - Duration value for the transition property.
+/// @param {$TTiming} $TTiming [ease] - Timing value for the transition property.
+/// @param {$TDelay} $TDelay [0s] - Delay value for the transition property.
+/// @param {$Extras} $Extras [null] - Extras values for the transition property.
+///
+/// The mixins Transition are used to set the transition properties for the hover mixin.
+///
+/// @example
+///
+///   .item {
+///
+///       // We call the mixin by @include //
+///
+///       @include Transition;
+///
+///       // The result of this mixin will be: //
+///
+///           transition: opacity 0.5s ease 0s;
+///
+///   }
+
+@mixin Transition ($TProperty:opacity, $TDuration:.5s, $TTiming:ease, $TDelay:0s, $Extras:null) {
+
+    transition: $TProperty $TDuration $TTiming $TDelay, $Extras;
+
+}
+
+/// This mixin calls overflow scrolling for elements that require scrolling, so that only the scroll bar is displayed when the hover is active.
+/// @group MIXINS
+///
+/// @example
+///
+/// .item {
+///
+///    // We call the mixin by @include //
+///
+///    @include OverFlow;
+///
+///    // The result of this mixin will be: //
+///
+///    &:hover {
+///
+///        -moz-overflow-scrolling: touch;
+///        -webkit-overflow-scrolling: touch;
+///            overflow-y: auto;
+///            transition: all 5s ease;
+///
+///    }
+/// }
+
+@mixin OverFlow {
+
+    &:hover {
+
+        -moz-overflow-scrolling: touch;
+        -webkit-overflow-scrolling: touch;
+        overflow-y: auto;
+        transition: all 5s ease;
+
+    }
+}
+
+/// This mixin is in charge of giving the same style to the scroll bar in the different browsers.
+/// @group MIXINS
+///
+/// @example
+///
+/// .item {
+///
+///    // We call the mixin by @include //
+///
+///    @include ScrollBar;
+///
+///    // The result of this mixin will be: //
+///
+///    -moz-overflow-scrolling: touch;
+///        -webkit-overflow-scrolling: touch;
+///
+///    &::-webkit-scrollbar {
+///
+///            width: 9px;
+///
+///            @include Themer(background, Transparent);
+///
+///        }
+///
+///    &::-webkit-scrollbar-thumb {
+///
+///    border-radius: 10px;
+///    -webkit-box-shadow: inset 0px 0px 6px var(--Hubio-Transparent);
+///
+///    @include Themer(background, Extra-A65);
+///
+///    }
+///
+///    &::-webkit-scrollbar-track {
+///        @include Themer(background, White);
+///
+///    }
+///
+///    &::-moz-scrollbar {
+///
+///        width: 9px;
+///
+///        @include Themer(background, Transparent);
+///
+///    }
+///
+///    &::-moz-scrollbar-thumb {
+///
+///        border-radius: 10px;
+///        -webkit-box-shadow: inset 0 0 6px var(--Hubio-Transparent);
+///
+///        @include Themer(background, Extra-A65);
+///
+///    }
+///
+///    &::-moz-scrollbar-track {
+///        @include Themer(background, White);
+///
+///    }
+/// }
+
+@mixin ScrollBar {
+
+    -moz-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+
+        width: 9px;
+
+        @include Themer(background, Transparent);
+
+    }
+
+    &::-webkit-scrollbar-thumb {
+
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0px 0px 6px var(--Hubio-Transparent);
+
+        @include Themer(background, Extra-A65);
+
+    }
+
+    &::-webkit-scrollbar-track {
+        @include Themer(background, White);
+
+    }
+
+    &::-moz-scrollbar {
+
+        width: 9px;
+
+        @include Themer(background, Transparent);
+
+    }
+
+    &::-moz-scrollbar-thumb {
+
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px var(--Hubio-Transparent);
+
+        @include Themer(background, Extra-A65);
+
+    }
+
+    &::-moz-scrollbar-track {
+        @include Themer(background, White);
+
+    }
+
+}
+
+/// This mixin is responsible for activating the menu animation when the cursor passes over it, only above the desktop resolution
+/// @group MIXINS
+///
+/// @example
+///
+/// .item {
+///
+///    // We call the mixin by @include //
+///
+///    @include AnimationMenu;
+///
+///    // The result of this mixin will be: //
+///
+///    @include Breakpoint(Desktop) {
+///
+///         transition: all .3s ease-out;
+///
+///         &:hover {
+///
+///             cursor: pointer;
+///             opacity: 1;
+///             padding-left: 6px;
+///             width: auto;
+///
+///             @include AnimationPill;
+///             @include Themer(color, WhiteAbsl);
+///             @include BackgroundThemeActive;
+///
+///             @include Enclose(Menu__IcnTxtHomeCtr) {
+///
+///                 display: block;
+///                 opacity: 1;
+///
+///                 @include AnimationPillText;
+///
+///             }
+///
+///             @include Enclose(Menu__IcnTxt) {
+///
+///                 width: auto;
+///                 max-width: 200px;
+///                 white-space: nowrap;
+///
+///                 @include Spacer(padding, all, zero lg zero zero);
+///
+///             }
+///
+///         }
+///
+///    }
+/// }
+
+@mixin AnimationMenu {
+    @include Breakpoint(Desktop) {
+
+        transition: all .3s ease-out;
+
+        &:hover {
+
+            cursor: pointer;
+            padding-left: 6px;
+            width: auto;
+
+            @include AnimationPill;
+            @include Themer(color, WhiteAbsl);
+            @include BackgroundThemeActive;
+
+            @include Enclose(Menu__IcnTxtHomeCtr) {
+
+                display: block;
+
+                @include AnimationPill;
+
+            }
+
+            @include Enclose(Menu__IcnTxt) {
+
+                width: auto;
+                max-width: 255px;
+                white-space: nowrap;
+
+                @include Spacer(padding, all, zero lg zero zero);
+
+            }
+
+        }
+
+    }
+}
+
+/// This mixins is configured the pill animations for apply our customs neumorphic menu.
+/// @group MIXINS
+///
+/// @example
+///
+///   // We call the mixin by @include //
+///
+///   @include AnimationPill;
+///
+///   // The result of this mixin will be: //
+///
+///   animation: Pill .3s ease-out;
+///
+///   @keyframes Pill {
+///
+///       0% {
+///           width: 50px;
+///
+///       }
+///
+///       100% {
+///           width: auto;
+///
+///       }
+///   }
+///
+
+@mixin AnimationPill {
+
+    animation: Pill .3s ease-out;
+    opacity: 1;
+
+    @keyframes Pill {
+
+        0% {
+            width: 50px;
+            opacity: 0;
+
+        }
+
+        100% {
+            width: auto;
+            opacity: 1;
+
+        }
+    }
+
+}
+
+/// This mixins is configured the text animations for apply our customs neumorphic menu.
+/// @group MIXINS
+///
+/// @example
+///
+///   // We call the mixin by @include //
+///
+///   @include AnimationPillText;
+///
+///   // The result of this mixin will be: //
+///
+///   animation: Pill .3s ease-out;
+///
+///   @keyframes Pill {
+///
+///       0% {
+///           width: 50px;
+///
+///       }
+///
+///       100% {
+///           width: auto;
+///
+///       }
+///   }
+///
+
+@mixin AnimationPillText {
+
+    animation: Pill .3s ease-out;
+
+    @keyframes Pill {
+
+        0% {
+            width: 50px;
+
+        }
+
+        100% {
+            width: auto;
+
+        }
+    }
+
+}
+
+/// This mixin contains the animation appears when an input shows an error.
+/// @group MIXINS
+///
+/// @example
+///
+///   .item {
+///
+///       // We call the mixin by @include //
+///
+///       @include AnimationError;
+///
+///       // The result of this mixin will be: //
+///
+///       animation: Shake .82s cubic-bezier(.36, .7, .19, .97) both;
+///        backface-visibility: hidden;
+///        perspective: 1000px;
+///
+///        @keyframes Shake {
+///
+///            10%,
+///            90% {
+///                transform: translate3d(-1px, 0, 0);
+///
+///            }
+///
+///            20%,
+///            80% {
+///                transform: translate3d(2px, 0, 0);
+///
+///            }
+///
+///            30%,
+///            50%,
+///            70% {
+///                transform: translate3d(-4px, 0, 0);
+///
+///            }
+///
+///            40%,
+///            60% {
+///                transform: translate3d(4px, 0, 0);
+///
+///            }
+///        }
+///
+///   }
+
+@mixin AnimationError {
+
+    animation: Shake .82s cubic-bezier(.36, .7, .19, .97) both;
+    backface-visibility: hidden;
+    perspective: 1000px;
+
+    @keyframes Shake {
+
+        10%,
+        90% {
+            transform: translate3d(-1px, 0, 0);
+
+        }
+
+        20%,
+        80% {
+            transform: translate3d(2px, 0, 0);
+
+        }
+
+        30%,
+        50%,
+        70% {
+            transform: translate3d(-4px, 0, 0);
+
+        }
+
+        40%,
+        60% {
+            transform: translate3d(4px, 0, 0);
+
+        }
+    }
+
+}
+
+/// Shows the animation of the seconds on the schedules clock.
+/// @group MIXINS
+///
+/// @example
+///
+///   .item {
+///
+///       // We call the mixin by @include //
+///
+///       @include AnimationTime;
+///
+///       // The result of this mixin will be: //
+///
+///        position: relative;
+///
+///        @include Themer(color, BodyText, before) {
+///
+///        content: ":    ";
+///            position: absolute;
+///            left: 0px;
+///            transform: scale(1);
+///            opacity: 1;
+///            animation: Seconds 2s ease-in-out infinite;
+///
+///        }
+///
+///        @keyframes Seconds {
+///
+///            0% {
+///
+///                transform: scale(.9);
+///                opacity: 0;
+///
+///            }
+///
+///            40% {
+///
+///                transform: scale(1);
+///                opacity: 1;
+///
+///            }
+///
+///            60% {
+///
+///                transform: scale(1);
+///                opacity: 1;
+///            }
+///
+///            100% {
+///
+///                transform: scale(.9);
+///                opacity: 0;
+///
+///            }
+///        }
+///   }
+
+@mixin AnimationTime {
+
+    position: relative;
+
+    @include Themer(color, BodyText, before) {
+
+        content: ":    ";
+        position: absolute;
+        left: 0px;
+        transform: scale(1);
+        opacity: 1;
+        animation: Seconds 2s ease-in-out infinite;
+
+    }
+
+    @keyframes Seconds {
+
+        0% {
+
+            transform: scale(.9);
+            opacity: 0;
+
+        }
+
+        40% {
+
+            transform: scale(1);
+            opacity: 1;
+
+        }
+
+        60% {
+
+            transform: scale(1);
+            opacity: 1;
+
+        }
+
+        100% {
+
+            transform: scale(.9);
+            opacity: 0;
+
+        }
+    }
+
+}
+
+/// Performs the index display animation.
+/// @group MIXINS
+///
+/// @example
+///
+///   .item {
+///
+///       // We call the mixin by @include //
+///
+///       @include Opacity;
+///
+///       // The result of this mixin will be: //
+///
+///        animation: Opacity 1s ease-in-out;
+///
+///        @keyframes Opacity {
+///
+///            0% {
+///
+///                opacity: 0;
+///
+///            }
+///
+///            100% {
+///
+///                opacity: 1;
+///
+///            }
+///        }
+///   }
+
+@mixin Opacity {
+
+    animation: Opacity 1s ease-in-out;
+
+    @keyframes Opacity {
+
+        0% {
+
+            opacity: 0;
+
+        }
+
+        100% {
+
+            opacity: 1;
+
+        }
+    }
+
+}
+
+/// Performs the animation for the apparition of the card of the login components, sign in and initial quiz
+/// @group MIXINS
+///
+/// @example
+///
+///   .item {
+///
+///       // We call the mixin by @include //
+///
+///       @include CardIn;
+///
+///       // The result of this mixin will be: //
+///
+///        animation: CardAnimationIn 1.2s linear 1;
+///
+///        @keyframes CardAnimationIn {
+///
+///            0% {
+///
+///                transform: translateY(-1500px) scaleY(1.1);
+///                opacity: 0;
+///            }
+///
+///
+///            40% {
+///
+///                opacity: .2;
+///
+///            }
+///
+///            80% {
+///
+///                transform: translateY(0px) scaleY(.98);
+///
+///            }
+///
+///            90% {
+///
+///                transform: translateY(-15px) scaleY(1.02);
+///
+///            }
+///
+///            100% {
+///
+///                opacity: 1;
+///                transform: translateY(0px) scaleY(1);
+///
+///            }
+///        }
+///   }
+
+@mixin CardIn {
+
+    animation: CardAnimationIn 1.2s linear 1;
+
+    @keyframes CardAnimationIn {
+
+        0% {
+
+            transform: translateY(-1500px) scaleY(1.1);
+            opacity: 0;
+
+        }
+
+        40% {
+
+            opacity: .2;
+
+        }
+
+        80% {
+
+            transform: translateY(0px) scaleY(.98);
+
+        }
+
+        90% {
+
+            transform: translateY(-15px) scaleY(1.02);
+
+        }
+
+        100% {
+
+            transform: translateY(0px) scaleY(1);
+            opacity: 1;
+
+        }
+    }
+
+}
+
+/// Performs the animation for the disappearance of the card of the login components, sign in and initial quiz
+/// @group MIXINS
+///
+/// @example
+///
+///   .item {
+///
+///       // We call the mixin by @include //
+///
+///       @include CardOut;
+///
+///       // The result of this mixin will be: //
+///
+///        animation: CardAnimationOut 1s ease-in 1;
+///        transition: 1s;
+///        opacity: 0;
+///
+///        @keyframes CardAnimationOut {
+///
+///            0% {
+///
+///                transform: translateY(0px);
+///
+///            }
+///
+///            5% {
+///                transform: translateY(10px);
+///
+///            }
+///
+///            10% {
+///                transform: translateY(-50px);
+///
+///            }
+///
+///            100% {
+///
+///                transform: translateY(2000px);
+///
+///            }
+///        }
+///   }
+
+@mixin CardOut {
+
+    animation: CardAnimationOut 1s ease-in 1;
+    transition: 1s;
+    opacity: 0;
+
+    @keyframes CardAnimationOut {
+
+        0% {
+
+            transform: translateY(0px);
+
+        }
+
+        5% {
+            transform: translateY(10px);
+
+        }
+
+        10% {
+            transform: translateY(-50px);
+
+        }
+
+        100% {
+
+            transform: translateY(2000px);
+
+        }
+    }
+
+}
+
+/// Performs the animation for the disappearance of the card of the login components, sign in and initial quiz
+/// @group MIXINS
+///
+/// @example
+///
+///   .item {
+///
+///       // We call the mixin by @include //
+///
+///       @include IndexAnimation;
+///
+///       // The result of this mixin will be: //
+///
+///        animation: index 1s linear 1;
+///
+///        @keyframes index {
+///
+///            1% {
+///                opacity: 0;
+///
+///            }
+///
+///            50% {
+///                opacity: 0;
+///
+///            }
+///
+///            100% {
+///                opacity: 1;
+///
+///            }
+///        }
+///
+///   }
+
+@mixin IndexAnimation {
+
+    animation: index 1s linear 1;
+
+    @keyframes index {
+
+        1% {
+            opacity: 0;
+
+        }
+
+        50% {
+            opacity: 0;
+
+        }
+
+        100% {
+            opacity: 1;
+
+        }
+    }
+
+}

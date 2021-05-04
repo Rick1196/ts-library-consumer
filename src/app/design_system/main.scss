@@ -1,0 +1,55 @@
+////
+/// @author Schiller UX/UI Design Department
+/// @since v3.1.0
+/// @since Sep/2020
+/// @group IMPORT
+/// This document contains the imports for all components, engines, mixin, style sheets, themes and other elements for the operation of the design system.
+////
+
+/// @group IMPORT
+/// Used to perform the exponent calculations required for fluent typography to work.
+@import '../../../node_modules/sass-math-pow/sass/math-pow';
+
+/// @group IMPORT
+/// Import for engines engines functions.
+@import './settings/engines/Functions';
+
+/// @group IMPORT
+/// Import for values for color variations;
+@import './settings/Color_Variations';
+
+/// @group IMPORT
+/// Import for the global Mixins;
+@import './global/themes/Themes';
+
+/// @group IMPORT
+/// Import for the global Mixins;
+@import './global/Mixins';
+
+/// @group IMPORT
+/// Import theme settings;
+@import './settings/Settings';
+
+/// @group IMPORT
+/// Import for the Fontface.
+@import './global/Fontface';
+
+/// @group IMPORT
+/// Import for the Root.
+@import './root/Root';
+
+/// @group IMPORT
+///Import for the global Ressets.
+@import './global/Reset';
+
+/// @group IMPORT
+/// Import for the stylesheets components
+@import './stylesheets/component/Component';
+
+/// @group IMPORT
+/// Import for the stylesheets general
+@import './stylesheets/general/General';
+
+/// @group IMPORT
+/// Import for the theme stylesheets
+@import './themes/Themes';

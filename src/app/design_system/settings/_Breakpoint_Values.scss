@@ -1,0 +1,41 @@
+////
+/// @author Schiller UX/UI Design Department
+/// @since v3.1.0
+/// @since Sep/2020
+/// @group SETTINGS
+////
+
+/// This document contains the display size variables for the brakpoints, the units are in pixels and it converts them to rem.
+/// @group SETTINGS
+/// @example
+///
+///   // We call the variable through the engine Breakpoint followed by the name of the breakpoint. //
+///
+///   @include Breakpoint(Desktop) {
+///
+///        @content
+///
+///   }
+///
+///   // The result of this mixin will be: //
+///
+///   @media (min-width: 1024px) {
+///
+///        @content
+///
+///   }
+
+$Breakpoints: (
+    Smartphone: (320px),
+    SmartphoneHD: (414px),
+    SmartphoneFHD: (415px),
+    Tablet: (768px),
+    TabletFHD: (1023px),
+    Desktop: (1024px),
+    DesktopHD: (1280px),
+    DesktopFHD: (1440px),
+    Retina: (1600px),
+    FullHD: (1800px)
+);
+
+@import "./engines/Breakpoint";

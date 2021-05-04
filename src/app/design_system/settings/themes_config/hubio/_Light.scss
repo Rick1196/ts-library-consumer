@@ -1,0 +1,55 @@
+////
+/// @author Schiller UX/UI Design Department
+/// @since v3.1.0
+/// @since Sep/2020
+/// @group SETTINGS
+////
+
+/// This document contains the color palettes for light mode in hsl format.
+/// @group SETTINGS
+/// @example
+///
+///   // We define a color value //
+///
+///   VariableName: (h, s, l);
+///
+///   // The result of this mixin will be: //
+///
+///   color: hsl(0, 0, 0);
+
+$Palettes: (
+    Hubio: (
+        Selected: (210, 100, 40),
+        SelectedLight: (210, 81, 62),
+        BodyText: (0, 0, 34),
+        HighRiskLight: (23, 96, 73),
+        HigherRiskLight: (0, 86, 65),
+        Interactions: (32, 93, 54),
+        InteractionsLight: (40, 96, 62),
+        Inactive: (0, 1, 44),
+        SectionCards: (0, 0, 93),
+        Labels: (228, 4, 29),
+        LowRiskLight: (70, 66, 58),
+        LowerRiskLight: (120, 66, 55),
+        Shadows: (227, 2, 22),
+        Menu: (244, 18, 17),
+        MediumRiskLight: (33, 90, 71),
+        BodyBackground: (0, 0, 96),
+        Error: (355, 85, 53),
+        Alert: (46, 100, 50),
+        Active: (120, 100, 35),
+        Extra: (230, 11, 42),
+        ExtraLight: (230, 17, 57),
+        Extra2: (0, 0, 88),
+        Glow: (120, 100, 93),
+        GlowBlue: (210, 100, 92),
+        Extra3: (268, 95, 38),
+        Gradient: (0, 0, 93),
+        Bubble: (185, 100, 37),
+        Black: (0, 0, 0),
+        White: (0, 0, 100),
+        BlackAbsl: (0, 0, 0),
+        WhiteAbsl: (0, 0, 100),
+        WhiteSwitch: (0, 0, 100, .95)
+    )
+);
