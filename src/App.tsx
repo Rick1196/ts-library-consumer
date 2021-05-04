@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import { EmailInputComponent } from 'library-hello-ts';
 function App() {
   return (
     <div className="App">
@@ -10,6 +10,12 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
+        <EmailInputComponent
+          idInput=''
+          labelInput=''
+          nameInput='email'
+          textInput='Email'
+          typeInput='text' />
         <a
           className="App-link"
           href="https://reactjs.org"
