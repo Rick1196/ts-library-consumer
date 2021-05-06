@@ -27,6 +27,22 @@
 
     @include ColorVariations;
 
+    //Remove this if you have active the darkmode logic
+
+    //Palettes
+    $ColorValue: map-get($Palettes, $skin);
+
+    @each $color, $name in $ColorValue {
+        $value-h: nth($name, 1);
+        $value-s: nth($name, 2);
+        $value-l: nth($name, 3);
+
+        $finalcolor: "hsl(#{$value-h}, #{$value-s}%, #{$value-l}%)";
+
+        #{"--"+$UINameSpace}-#{""+$color}: unquote($finalcolor);
+
+    }
+
     #{"--"+$UINameSpace}-#{"Basefont"}: 1;
     #{"--"+$UINameSpace}-#{"Zero"}: 0;
     #{"--"+$UINameSpace}-#{"Uno"}: 16;

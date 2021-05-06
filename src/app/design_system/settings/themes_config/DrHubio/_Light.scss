@@ -5,7 +5,7 @@
 /// @group SETTINGS
 ////
 
-/// This document contains the color palettes for dark mode in hsl format.
+/// This document contains the color palettes for light mode in hsl format.
 /// @group SETTINGS
 /// @example
 ///
@@ -17,34 +17,39 @@
 ///
 ///   color: hsl(0, 0, 0);
 
-$PalettesDark: (
-    Hubio: (
+$Palettes: (
+    DrHubio: (
         Selected: (210, 100, 40),
         SelectedLight: (210, 81, 62),
-        BodyText: (270, 2, 65),
-        Interactions: (28, 100, 50),
+        BodyText: (0, 0, 34),
+        HighRiskLight: (23, 96, 73),
+        HigherRiskLight: (0, 86, 65),
+        Interactions: (32, 93, 54),
         InteractionsLight: (40, 96, 62),
         Inactive: (0, 1, 44),
-        SectionCards: (0, 0, 20),
-        Labels: (223, 6, 75),
+        SectionCards: (0, 0, 93),
+        Labels: (228, 4, 29),
+        LowRiskLight: (70, 66, 58),
+        LowerRiskLight: (120, 66, 55),
         Shadows: (227, 2, 22),
-        Menu: (0, 0, 75),
-        BodyBackground: (0, 0, 10),
+        Menu: (244, 18, 17),
+        MediumRiskLight: (33, 90, 71),
+        BodyBackground: (0, 0, 96),
         Error: (355, 85, 53),
         Alert: (46, 100, 50),
         Active: (120, 100, 35),
         Extra: (230, 11, 42),
         ExtraLight: (230, 17, 57),
-        Extra2: (300, 3, 19),
+        Extra2: (0, 0, 88),
         Glow: (120, 100, 93),
         GlowBlue: (210, 100, 92),
         Extra3: (268, 95, 38),
         Gradient: (0, 0, 93),
         Bubble: (185, 100, 37),
-        Black: (0, 0, 100),
-        White: (0, 0, 0),
+        Black: (0, 0, 0),
+        White: (0, 0, 100),
         BlackAbsl: (0, 0, 0),
         WhiteAbsl: (0, 0, 100),
-        WhiteSwitch: (0, 0, 0, .95)
+        WhiteSwitch: (0, 0, 100, .95)
     )
 );

@@ -54,25 +54,25 @@
 ///
 ///       // The result of this mixin will be: //
 ///
-///       background: linear-gradient(45deg, var(--Hubio-SelectedLight), var(--Hubio-Selected));
+///       background: linear-gradient(45deg, var(--DrHubio-SelectedLight), var(--DrHubio-Selected));
 ///
 ///   }
 
 @mixin BackgroundTheme {
 
-    background: linear-gradient(45deg, var(--Hubio-SelectedLight), var(--Hubio-Selected));
+    background: linear-gradient(45deg, var(--DrHubio-SelectedLight), var(--DrHubio-Selected));
 
 }
 
 @mixin BackgroundThemeActive {
 
-    background: linear-gradient(45deg, var(--Hubio-InteractionsLight), var(--Hubio-Interactions));
+    background: linear-gradient(45deg, var(--DrHubio-InteractionsLight), var(--DrHubio-Interactions));
 
 }
 
 @mixin BackgroundProfile {
 
-    background: linear-gradient(45deg, var(--Hubio-ExtraLight), var(--Hubio-Extra));
+    background: linear-gradient(45deg, var(--DrHubio-ExtraLight), var(--DrHubio-Extra));
 
 }
 
@@ -89,7 +89,7 @@
 ///
 ///       // The result of this mixin will be: //
 ///
-///       background: linear-gradient(45deg, var(--Hubio-LowerRisk), var(--Hubio-LowerRiskLight));
+///       background: linear-gradient(45deg, var(--DrHubio-LowerRisk), var(--DrHubio-LowerRiskLight));
 ///
 ///   }
 
@@ -294,7 +294,7 @@
 ///
 ///       // The result of this mixin will be: //
 ///
-///       .InputForm__BtnContainer.Hubio {
+///       .InputForm__BtnContainer.DrHubio {
 ///
 ///           height: auto;
 ///           width: auto;
@@ -303,7 +303,7 @@
 ///
 ///       }
 ///
-///       .InputForm__Btn-Full.Hubio {
+///       .InputForm__Btn-Full.DrHubio {
 ///
 ///           height: 40px;
 ///           max-width: 130px;
@@ -320,7 +320,7 @@
 
 @mixin BtnSelector {
 
-    .InputForm__BtnContainer.Hubio {
+    .InputForm__BtnContainer.DrHubio {
 
         height: auto;
         width: auto;
@@ -329,7 +329,7 @@
 
     }
 
-    .InputForm__Btn-Full.Hubio {
+    .InputForm__Btn-Full.DrHubio {
 
         height: 44px;
         max-width: 100px;
@@ -358,7 +358,7 @@
 ///   -moz-osx-font-smoothing: grayscale;
 ///   font-smoothing: antialiased;
 ///   -webkit-font-smoothing: antialiased;
-///   text-shadow: var(--Hubio-Black-A1) 0px 0px 1px;
+///   text-shadow: var(--DrHubio-Black-A1) 0px 0px 1px;
 ///
 
 @mixin FontSmoothing {
@@ -367,7 +367,7 @@
     -moz-osx-font-smoothing: grayscale;
     font-smoothing: antialiased;
     -webkit-font-smoothing: antialiased;
-    text-shadow: var(--Hubio-Black-A1) 0px 0px 1px;
+    text-shadow: var(--DrHubio-Black-A1) 0px 0px 1px;
 
 }
 
@@ -414,13 +414,13 @@
 ///
 ///       // The result of this mixin will be: //
 ///
-///       text-shadow: var(--Hubio-Shadows) 1px 1px 10px;
+///       text-shadow: var(--DrHubio-Shadows) 1px 1px 10px;
 ///
 ///   }
 
 @mixin Shadow {
 
-    text-shadow: var(--Hubio-Shadows) 1px 1px 10px;
+    text-shadow: var(--DrHubio-Shadows) 1px 1px 10px;
 
 }
 
@@ -497,49 +497,49 @@
 ///
 ///       // The result of this mixin will be: //
 ///
-///       box-shadow: 3px 3px 9px var(--Hubio-ShadowDark), -3px -3px 9px var(--Hubio-ShadowLight);
+///       box-shadow: 3px 3px 9px var(--DrHubio-ShadowDark), -3px -3px 9px var(--DrHubio-ShadowLight);
 ///
 ///   }
 
 @mixin BoxShadow {
 
-    box-shadow: 3px 3px 9px var(--Hubio-ShadowDark), -3px -3px 9px var(--Hubio-ShadowLight);
+    box-shadow: 3px 3px 9px var(--DrHubio-ShadowDark), -3px -3px 9px var(--DrHubio-ShadowLight);
 
 }
 
 @mixin TextShadow {
 
-    text-shadow: 3px 3px 9px var(--Hubio-ShadowDark), -3px -3px 9px var(--Hubio-ShadowLight);
+    text-shadow: 3px 3px 9px var(--DrHubio-ShadowDark), -3px -3px 9px var(--DrHubio-ShadowLight);
 
 }
 
 @mixin BtnShadow {
 
-    box-shadow: 3px 3px 9px var(--Hubio-ShadowDark), -2px -2px 6px var(--Hubio-ShadowLight);
+    box-shadow: 3px 3px 9px var(--DrHubio-ShadowDark), -2px -2px 6px var(--DrHubio-ShadowLight);
 
 }
 
 @mixin BtnShadowInset {
 
-    box-shadow: inset 3px 3px 9px var(--Hubio-ShadowDark), inset -3px -3px 9px var(--Hubio-ShadowLight);
+    box-shadow: inset 3px 3px 9px var(--DrHubio-ShadowDark), inset -3px -3px 9px var(--DrHubio-ShadowLight);
 
 }
 
 @mixin InputShadow {
 
-    box-shadow: inset 3px 3px 9px var(--Hubio-ShadowDark), inset -3px -3px 9px var(--Hubio-InputLight);
+    box-shadow: inset 3px 3px 9px var(--DrHubio-ShadowDark), inset -3px -3px 9px var(--DrHubio-InputLight);
 
 }
 
 @mixin InputShadowError {
 
-    box-shadow: inset 3px 3px 9px var(--Hubio-ShadowDark), inset -3px -3px 9px var(--Hubio-Error);
+    box-shadow: inset 3px 3px 9px var(--DrHubio-ShadowDark), inset -3px -3px 9px var(--DrHubio-Error);
 
 }
 
 @mixin LineShadow {
 
-    box-shadow: 3px 3px 9px var(--Hubio-ShadowDark), -3px -3px 9px var(--Hubio-InputLight);
+    box-shadow: 3px 3px 9px var(--DrHubio-ShadowDark), -3px -3px 9px var(--DrHubio-InputLight);
 
 }
 
@@ -688,7 +688,7 @@
 ///    &::-webkit-scrollbar-thumb {
 ///
 ///    border-radius: 10px;
-///    -webkit-box-shadow: inset 0px 0px 6px var(--Hubio-Transparent);
+///    -webkit-box-shadow: inset 0px 0px 6px var(--DrHubio-Transparent);
 ///
 ///    @include Themer(background, Extra-A65);
 ///
@@ -710,7 +710,7 @@
 ///    &::-moz-scrollbar-thumb {
 ///
 ///        border-radius: 10px;
-///        -webkit-box-shadow: inset 0 0 6px var(--Hubio-Transparent);
+///        -webkit-box-shadow: inset 0 0 6px var(--DrHubio-Transparent);
 ///
 ///        @include Themer(background, Extra-A65);
 ///
@@ -738,7 +738,7 @@
     &::-webkit-scrollbar-thumb {
 
         border-radius: 10px;
-        -webkit-box-shadow: inset 0px 0px 6px var(--Hubio-Transparent);
+        -webkit-box-shadow: inset 0px 0px 6px var(--DrHubio-Transparent);
 
         @include Themer(background, Extra-A65);
 
@@ -760,7 +760,7 @@
     &::-moz-scrollbar-thumb {
 
         border-radius: 10px;
-        -webkit-box-shadow: inset 0 0 6px var(--Hubio-Transparent);
+        -webkit-box-shadow: inset 0 0 6px var(--DrHubio-Transparent);
 
         @include Themer(background, Extra-A65);
 

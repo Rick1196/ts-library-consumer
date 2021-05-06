@@ -47,15 +47,15 @@ html {
 
 /// Detect the theme preferences for the dark color scheme.
 /// @group reset
-@media (prefers-color-scheme: dark) {
-    @include DarkScheme;
-}
+// @media (prefers-color-scheme: dark) {
+//     @include DarkScheme;
+// }
 
 /// Detect the theme preferences for the light color scheme.
 /// @group reset
-@media (prefers-color-scheme: light) {
-    @include LightScheme;
-}
+// @media (prefers-color-scheme: light) {
+//     @include LightScheme;
+// }
 
 /// Override the default values for the html h1, h2, h3, h4, h5, h6 and p labels.
 /// @group reset
@@ -93,7 +93,7 @@ p {
 ///
 /// h1 {
 ///
-///     color: var(--Hubio-Menu);
+///     color: var(--DrHubio-Menu);
 ///     text-transform: uppercase;
 ///
 ///     @include Typer(lg-b, $FSMAX: $f-xxl, $FSMIN: $f-m);
@@ -101,7 +101,7 @@ p {
 /// }
 h1,
 h2 {
-    color: var(--Hubio-Menu);
+    color: var(--DrHubio-Menu);
     text-transform: uppercase;
 
     @include Typer(lg-b, $FSMAX: $f-xxl, $FSMIN: $f-m);
@@ -109,7 +109,7 @@ h2 {
 }
 
 h3 {
-    color: var(--Hubio-Menu);
+    color: var(--DrHubio-Menu);
     text-transform: uppercase;
 
 }
@@ -140,7 +140,7 @@ h4 {
 ///
 /// h1 {
 ///
-///     color: var(--Hubio-Menu);
+///     color: var(--DrHubio-Menu);
 ///     text-transform: uppercase;
 ///
 ///     @include Typer(lg-b, $FSMAX: $f-xxl, $FSMIN: $f-m);
@@ -155,7 +155,7 @@ h5 {
 
 // input:-internal-autofill-selected {
 //
-//     //border-bottom: 2px solid var(--Hubio-Selected) !important;
+//     //border-bottom: 2px solid var(--DrHubio-Selected) !important;
 //
 // }
 
@@ -183,9 +183,9 @@ h5 {
 ///
 /// input:-webkit-autofill {
 ///
-///     //border-bottom: 2px solid var(--Hubio-Selected);
-///     -webkit-text-fill-color: var(--Hubio-Selected);
-///     //-webkit-box-shadow: 0px 0px 0px 1000px var(--Hubio-White) inset;
+///     //border-bottom: 2px solid var(--DrHubio-Selected);
+///     -webkit-text-fill-color: var(--DrHubio-Selected);
+///     //-webkit-box-shadow: 0px 0px 0px 1000px var(--DrHubio-White) inset;
 ///     transition: background-color 5000s ease-in-out 0s;
 ///
 /// }
@@ -200,9 +200,9 @@ h5 {
 // select:-webkit-autofill:hover,
 // select:-webkit-autofill:focus {
 //
-//     //border-bottom: 2px solid var(--Hubio-Selected);
-//     -webkit-text-fill-color: var(--Hubio-Selected);
-//     //-webkit-box-shadow: 0px 0px 0px 1000px var(--Hubio-White) inset;
+//     //border-bottom: 2px solid var(--DrHubio-Selected);
+//     -webkit-text-fill-color: var(--DrHubio-Selected);
+//     //-webkit-box-shadow: 0px 0px 0px 1000px var(--DrHubio-White) inset;
 //     transition: background-color 5000s ease-in-out 0s;
 //
 // }

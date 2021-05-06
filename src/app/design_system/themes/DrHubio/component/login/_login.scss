@@ -1,0 +1,22 @@
+@include ThemerUI(Login) {
+    @extend %Login;
+
+    @include Spacer(margin, all, zero auto);
+
+    &:first-child {
+
+        @include Enclose(Rect2) {
+
+            @include Themer(background, Active);
+
+        }
+
+    }
+
+    @include Enclose(Container) {
+
+        height: 60px;
+
+    }
+
+}

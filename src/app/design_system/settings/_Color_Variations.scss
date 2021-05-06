@@ -18,16 +18,16 @@
 ///   color: hsla(0, 0, 0, 1);
 
 @mixin ColorVariations {
-    @include Themer(rootcolor, Active, "7"); //This compiles to --Hubio-Active-A7
-    @include Themer(rootcolor, Black, "1"); //This compiles to --Hubio-Black-A1
-    @include Themer(rootcolor, Black, "25"); //This compiles to --Hubio-Black-A25
-    @include Themer(rootcolor, Black, "5"); //This compiles to --Hubio-Black-A5
-    @include Themer(rootcolor, BodyText, "6"); //This compiles to --Hubio-BodyText-A6
-    @include Themer(rootcolor, Extra, "65"); //This compiles to --Hubio-Extra-A65
-    @include Themer(rootcolor, Inactive, "35"); //This compiles to --Hubio-Inactive-A35
-    @include Themer(rootcolor, Interactions, "54"); //This compiles to --Hubio-Interactions-A54
-    @include Themer(rootcolor, Labels, "75"); //This compiles to --Hubio-Labels-A75
-    @include Themer(rootcolor, Menu, "7"); //This compiles to --Hubio-Menu-A7
-    @include Themer(rootcolor, Selected, "5"); //This compiles to --Hubio-Selected-A5
-    @include Themer(rootcolor, White, "2"); //This compiles to --Hubio-White-A2
+    @include Themer(rootcolor, Active, "7"); //This compiles to --DrHubio-Active-A7
+    @include Themer(rootcolor, Black, "1"); //This compiles to --DrHubio-Black-A1
+    @include Themer(rootcolor, Black, "25"); //This compiles to --DrHubio-Black-A25
+    @include Themer(rootcolor, Black, "5"); //This compiles to --DrHubio-Black-A5
+    @include Themer(rootcolor, BodyText, "6"); //This compiles to --DrHubio-BodyText-A6
+    @include Themer(rootcolor, Extra, "65"); //This compiles to --DrHubio-Extra-A65
+    @include Themer(rootcolor, Inactive, "35"); //This compiles to --DrHubio-Inactive-A35
+    @include Themer(rootcolor, Interactions, "54"); //This compiles to --DrHubio-Interactions-A54
+    @include Themer(rootcolor, Labels, "75"); //This compiles to --DrHubio-Labels-A75
+    @include Themer(rootcolor, Menu, "7"); //This compiles to --DrHubio-Menu-A7
+    @include Themer(rootcolor, Selected, "5"); //This compiles to --DrHubio-Selected-A5
+    @include Themer(rootcolor, White, "2"); //This compiles to --DrHubio-White-A2
 }

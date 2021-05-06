@@ -24,8 +24,8 @@
 ///
 ///       // The result of this mixin will be: //
 ///
-///           font-size: var(--Hubio-Tbase);
-///           line-height: calc(var(--Hubio-Tbase) / 16)rem;
+///           font-size: var(--DrHubio-Tbase);
+///           line-height: calc(var(--DrHubio-Tbase) / 16)rem;
 ///
 ///   }
 
@@ -68,7 +68,7 @@
 
         @if $LHMAX == 0 {
 
-            $LHMAX: --Hubio-Zero;
+            $LHMAX: --DrHubio-Zero;
 
         }
 
@@ -90,7 +90,7 @@
 
         @if $LHMIN == 0 {
 
-            $LHMIN: --Hubio-Zero;
+            $LHMIN: --DrHubio-Zero;
 
         }
 

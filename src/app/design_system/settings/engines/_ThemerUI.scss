@@ -28,7 +28,7 @@ $skin: $UINameSpace !default;
 ///
 ///   }
 
-@mixin ThemerUI($selector, $skin: 'Hubio') {
+@mixin ThemerUI($selector, $skin: 'DrHubio') {
     @if list-has-key( $ThemesUI, $skin) {
 
         $skin: $skin !global;
@@ -71,7 +71,7 @@ $skin: $UINameSpace !default;
 
 @mixin Element($nameElement : 'Element') {
 
-    &__#{$nameElement}.#{$UINameSpace} {
+    &__#{$nameElement} {
 
         @content;
 
@@ -108,9 +108,9 @@ $skin: $UINameSpace !default;
 
     $e: &;
 
-    $Element: str-replace(#{$e}, ".#{$UINameSpace}", '');
+    $Element: str-replace(#{$e}, '');
 
-    @at-root #{$Element}-#{$nameModify}.#{$UINameSpace} {
+    @at-root #{$Element}-#{$nameModify} {
 
         @content;
     }
@@ -141,7 +141,7 @@ $skin: $UINameSpace !default;
 
 @mixin Enclose($nameEnclose : 'Enclose') {
 
-    .#{$nameEnclose}.#{$UINameSpace} {
+    .#{$nameEnclose} {
 
         @content;
 

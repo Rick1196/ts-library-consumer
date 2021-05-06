@@ -6,11 +6,11 @@
 ///
 
 @mixin SwitchTheme($Theme:null) {
-    @if $Theme == HubioDark {
-        @include HubioDark;
+    @if $Theme == DrHubioDark {
+        @include DrHubioDark;
     }
 
-    @else if $Theme == HubioLight {
-        @include HubioLight;
+    @else if $Theme == DrHubioLight {
+        @include DrHubioLight;
     }
 }
